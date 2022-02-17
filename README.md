@@ -1,4 +1,4 @@
-**C# Program  a print a Binary Triangle.**
+**1.C# Program  a print a Binary Triangle.**
 
 using System;
 
@@ -34,5 +34,38 @@ namespace ex2
 **OUTPUT**
 
 ![image](https://user-images.githubusercontent.com/97940851/154425191-a0b6b8b6-7a87-46de-bda0-e18f575a4ad1.png)
+
+
+
+****
+using System;
+
+namespace Ex4
+{
+    class GrayCode
+    {
+        static int getGray(int n)
+        {
+            return n ^ (n >> 1);
+        }
+
+        static void Main(string[] args)
+        {
+            int InputNum, GrayNum;
+            Console.Write("\nEnter the decimal number:");
+            InputNum = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nbinary equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));
+
+            GrayNum = getGray(InputNum);
+            Console.WriteLine("\n Gray code equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));
+        }
+
+    }
+}
+
+
+**OUTPUT**
+
 
 
