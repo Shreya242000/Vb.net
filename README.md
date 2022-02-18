@@ -301,29 +301,29 @@ using System;
 
 namespace ex7
 {
-    class RegisterNum
+    class RegisterNum<br>
     {
-        int regNo;
-        static int startNum;
+        int regNo;<br>
+        static int startNum;<br>
 
-        static RegisterNum()
-        {
-            startNum = 20210000;
-        }
-        RegisterNum()
-        {
-            regNo = ++startNum;
-        }
-        public static void Main(string[] args)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                RegisterNum Student = new RegisterNum();
-                Console.WriteLine("Student{0}:{1}", i + 1, Student.regNo);
-            }
-        }
-    }
-}
+        static RegisterNum()<br>
+        {<br>
+            startNum = 20210000;<br>
+        }<br>
+        RegisterNum()<br>
+        {<br>
+            regNo = ++startNum;<br>
+        }<br>
+        public static void Main(string[] args)<br>
+        {<br>
+            for (int i = 0; i < 100; i++)<br>
+            {<br>
+                RegisterNum Student = new RegisterNum();<br>
+                Console.WriteLine("Student{0}:{1}", i + 1, Student.regNo);<br>
+            }<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -335,29 +335,29 @@ using System;
 
 namespace ex8
 {
-    class FrequencyIS
-    {
-        static void Main(string[] args)
-        {
-            int count = 0;
-            string inputString;
-            Console.WriteLine("\n-----Frequency of Word 'is'-------");
-            Console.Write("\n Enter the input String");
-            inputString = Console.ReadLine();
-            char[] separator = { ',', ' ', '.', '!', '\n' };
-            string testString = inputString.ToLower();
-            string[] outcomes = testString.Split(separator);
+    class FrequencyIS<br>
+    {<br>
+        static void Main(string[] args)<br>
+        {<br>
+            int count = 0;<br>
+            string inputString;<br>
+            Console.WriteLine("\n-----Frequency of Word 'is'-------");<br>
+            Console.Write("\n Enter the input String");<br>
+            inputString = Console.ReadLine();<br>
+            char[] separator = { ',', ' ', '.', '!', '\n' };<br>
+            string testString = inputString.ToLower();<br>
+            string[] outcomes = testString.Split(separator);<br>
             
-            foreach(String s in outcomes)
-            {
-                Console.WriteLine(s);
-                if (s == "is")
-                    count++;
-            }
-            Console.WriteLine("\n Number of 'is'in'"+inputString+"'is" + count);
-        }
-    }
-}
+            foreach(String s in outcomes)<br>
+            {<br>
+                Console.WriteLine(s);<br>
+                if (s == "is")<br>
+                    count++;<br>
+            }<br>
+            Console.WriteLine("\n Number of 'is'in'"+inputString+"'is" + count);<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
