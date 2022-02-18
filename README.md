@@ -252,4 +252,85 @@ namespace ex5
 
 
 
+**6.C# program to implement principle of delegate converting input string to uppercase first last and entire string**
+using System;
+
+namespace ex6
+{
+    class Delegates
+    {
+        delegate string UppercaseDelegate(string input);
+        static string UppercaseFirst(string input)
+        {
+            Char[] buffer = input.ToCharArray();
+            buffer[0] = char.ToUpper(buffer[0]);
+            return new string(buffer);
+        }
+        static string UppercaseLast(string input)
+        { 
+          Char[] buffer = input.ToCharArray();
+          buffer[buffer.Length-1] = char.ToUpper(buffer[buffer.Length-1]);
+          return new string (buffer);
+        }
+        static string UppercaseAll(string input)
+        {
+            return input.ToUpper();
+        }
+        static void WriteOutput(string input,UppercaseDelegate del)
+            {
+            Console.WriteLine("Input String:{0}", input);
+            Console.WriteLine("Output String:{0}",del( input));
+        }
+        static void Main()
+        {
+            WriteOutput("tom", new UppercaseDelegate(UppercaseFirst));
+            WriteOutput("tom", new UppercaseDelegate(UppercaseLast));
+            WriteOutput("tom", new UppercaseDelegate(UppercaseAll));
+            Console.ReadLine();
+        }
+    }
+    }
+    
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154623846-5ee21756-ccd2-416d-882d-df8cbb87332b.png)
+
+**7.C# program to generate register number automatically for 100 students using static constructs**
+
+using System;
+
+namespace ex7
+{
+    class RegisterNum
+    {
+        int regNo;
+        static int startNum;
+
+        static RegisterNum()
+        {
+            startNum = 20210000;
+        }
+        RegisterNum()
+        {
+            regNo = ++startNum;
+        }
+        public static void Main(string[] args)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                RegisterNum Student = new RegisterNum();
+                Console.WriteLine("Student{0}:{1}", i + 1, Student.regNo);
+            }
+        }
+    }
+}
+
+**OUTPUT**
+![image](https://user-images.githubusercontent.com/97940851/154624217-5ae8cf9c-d4e9-4e1b-a7a1-effb692edb4d.png)
+
+
+
+
+
+
 
