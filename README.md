@@ -1,35 +1,35 @@
 **1.C# Program  a print a Binary Triangle.**
 
-using System;
+using System;<br>
 
-namespace ex2
-{
-    class BinaryTriangle
+namespace ex2<br>
+{<br>
+    class BinaryTriangle<br>
 
-    {
-        static void Main(string[] args)
-        {
-            int number, digit = 1;
-            Console.WriteLine("\nEnter the number of lines");
-            number = Convert.ToInt32(Console.ReadLine());
+    {<br>
+        static void Main(string[] args)<br>
+        {<br>
+            int number, digit = 1;<br>
+            Console.WriteLine("\nEnter the number of lines");<br>
+            number = Convert.ToInt32(Console.ReadLine());<br>
 
-            for (int i = 1; i <= number; i++)
-            {
-                for (int space = number - i; space > 0; space--)
+            for (int i = 1; i <= number; i++)<br>
+            {<br>
+                for (int space = number - i; space > 0; space--)<br>
+                {<br>
+                    Console.Write(" ");<br>
+                }<br>
+
+                for (int j = 0; j < i; j++)<br>
                 {
-                    Console.Write(" ");
-                }
-
-                for (int j = 0; j < i; j++)
-                {
-                    Console.Write(digit + " ");
-                    digit = (digit == 1) ? 0 : 1;
-                }
-                Console.Write("\n");
-            }
-        }
-    }
-}
+                    Console.Write(digit + " ");<br>
+                    digit = (digit == 1) ? 0 : 1;<br>
+                }<br>
+                Console.Write("\n");<br>
+            }<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -37,32 +37,32 @@ namespace ex2
 
 
 
-**C# program to create a Gray code**
-using System;
+**4.C# program to create a Gray code**
+using System;<br>
 
-namespace Ex4
-{
-    class GrayCode
-    {
-        static int getGray(int n)
-        {
-            return n ^ (n >> 1);
-        }
+namespace Ex4<br>
+{<br>
+    class GrayCode<br>
+    {<br>
+        static int getGray(int n)<br>
+        {<br>
+            return n ^ (n >> 1);<br>
+        }<br>
 
-        static void Main(string[] args)
-        {
-            int InputNum, GrayNum;
-            Console.Write("\nEnter the decimal number:");
-            InputNum = Convert.ToInt32(Console.ReadLine());
+        static void Main(string[] args)<br>
+        {<br>
+            int InputNum, GrayNum;<br>
+            Console.Write("\nEnter the decimal number:");<br>
+            InputNum = Convert.ToInt32(Console.ReadLine());<br>
 
-            Console.WriteLine("\nbinary equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));
+            Console.WriteLine("\nbinary equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));<br>
 
-            GrayNum = getGray(InputNum);
-            Console.WriteLine("\n Gray code equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));
-        }
+            GrayNum = getGray(InputNum);<br>
+            Console.WriteLine("\n Gray code equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));<br>
+        }<br>
 
-    }
-}
+    }<br>
+}<br>
 
 
 **OUTPUT**
@@ -79,113 +79,113 @@ namespace Ex4
 
 
 **3.C# program to illustrate multilevel Inheritance with virtual methods**
-using System;
+using System;<br>
 
-namespace ex3
-{
-    class PersonalDetails
-    {
-         string name;
-         int age;
-        string gender;
+namespace ex3<br>
+{<br>
+    class PersonalDetails<br>
+    {<br>
+         string name;<br>
+         int age;<br>
+        string gender;<br>
 
-        public PersonalDetails(string name, int age, string gender)
-        {
-            this.name = name;
-            this.age = age;
-            this.gender = gender;
-        }
-        public virtual void Display()
-        {
-            Console.WriteLine("\n------Personal Details----");
-            Console.WriteLine("Name    :" + name);
-            Console.WriteLine("Age     :" + age);
-            Console.WriteLine("Gender  :" + gender);
-        }
-    }
-    class CourseDetails : PersonalDetails
-    {
+        public PersonalDetails(string name, int age, string gender)<br>
+        {<br>
+            this.name = name;<br>
+            this.age = age;<br>
+            this.gender = gender;<br>
+        }<br>
+        public virtual void Display()<br>
+        {<br>
+            Console.WriteLine("\n------Personal Details----");<br>
+            Console.WriteLine("Name    :" + name);<br>
+            Console.WriteLine("Age     :" + age);<br>
+            Console.WriteLine("Gender  :" + gender);<br>
+        }<br>
+    }<br>
+    class CourseDetails : PersonalDetails<br>
+    {<br>
          int regNo;
-        string course;
-        int semester;
+        string course<br>;
+        int semester;<br>
 
-        public CourseDetails(string name, int age, string gender, int regNo, string course, int semester) : base(name, age, gender)
-        {
-            this.regNo = regNo;
-            this.course = course;
-            this.semester = semester;
-        }
+        public CourseDetails(string name, int age, string gender, int regNo, string course, int semester) : base(name, age, gender)<br>
+        {<br>
+            this.regNo = regNo;<br>
+            this.course = course;<br>
+            this.semester = semester;<br>
+        }<br>
 
-        public override void Display()
-        {
-            base.Display();
-            Console.WriteLine("\n------Course Details------\n");
-            Console.WriteLine("Register Number :" + regNo);
-            Console.WriteLine("Course          :" + course);
-            Console.WriteLine("Semester        :" + semester);
-        }
-    }
+        public override void Display()<br>
+        {<br>
+            base.Display();<br>
+            Console.WriteLine("\n------Course Details------\n");<br>
+            Console.WriteLine("Register Number :" + regNo);<br>
+            Console.WriteLine("Course          :" + course);<br>
+            Console.WriteLine("Semester        :" + semester);<br>
+        }<br>
+    }<br>
 
-    class MarksDetails : CourseDetails
-    {
-        int[] marks = new int[5];
-        int total;
-        float average;
-        string grade;
-        int flagFail;
+    class MarksDetails : CourseDetails<br>
+    {<br>
+        int[] marks = new int[5];<br>
+        int total;<br>
+        float average;<br>
+        string grade;<br>
+        int flagFail;<br>
 
-        public MarksDetails(string name, int age, string gender, int regNo, string course, int semester, int[] marks) : base(name, age,gender, regNo, course, semester)
-        {
-            total = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                this.marks[i] = marks[i];
-                total += marks[i];
+        public MarksDetails(string name, int age, string gender, int regNo, string course, int semester, int[] marks) : base(name, age,gender, regNo, course, semester)<br>
+        {<br>
+            total = 0;<br>
+            for (int i = 0; i < 5; i++)<br>
+            {<br>
+                this.marks[i] = marks[i];<br>
+                total += marks[i];<br>
 
-                if (marks[i] < 35)
-                {
-                    flagFail = 1;
-                }
-            }
-            Calculate();
-        }
-        private void Calculate()
-        {
-            average = total / 5;
+                if (marks[i] < 35)<br>
+                {<br>
+                    flagFail = 1;<br>
+                }<br>
+            }<br>
+            Calculate();<br>
+        }<br>
+        private void Calculate()<br>
+        {<br>
+            average = total / 5;<br>
 
-            if (flagFail == 1 || average < 40)
-                grade = "Fail";
-            else if (average >= 70)
-                grade = "Distinction";
-            else if (average >= 60)
-                grade = "First Class";
-            else if (average >= 50)
-                grade = "second Class";
-            else
-                grade = "Pass Class";
-        }
-        public override void Display()
-        {
-            base.Display();
-            Console.WriteLine("\n----Mark Details----");
-            Console.Write("marks in 5 subjects: ");
-            for (int i = 0; i < 5; i++)
-                Console.Write(marks[i] + " ");
-            Console.WriteLine();
-            Console.WriteLine("Total   :" + total);
-            Console.WriteLine("Average :" + average);
-            Console.WriteLine("Grade   :" + grade);
-        }
-    }
-    class MultiLevel
-    {
-        public static void Main(string[] agrs)
-        {
-            MarksDetails Student1 = new MarksDetails("Shreya", 22, "Female", 202090001, "Msc", 5, new int[] { 77, 80, 98, 95, 90 });
-            Student1.Display();
-        }
-    }
-}
+            if (flagFail == 1 || average < 40)<br>
+                grade = "Fail";<br>
+            else if (average >= 70)<br>
+                grade = "Distinction";<br>
+            else if (average >= 60)<br>
+                grade = "First Class";<br>
+            else if (average >= 50<br>)
+                grade = "second Class";<br>
+            else<br>
+                grade = "Pass Class";<br>
+        }<br>
+        public override void Display()<br>
+        {<br>
+            base.Display();<br>
+            Console.WriteLine("\n----Mark Details----");<br>
+            Console.Write("marks in 5 subjects: ");<br>
+            for (int i = 0; i < 5; i++)<br>
+                Console.Write(marks[i] + " ");<br>
+            Console.WriteLine();<br>
+            Console.WriteLine("Total   :" + total);<br>
+            Console.WriteLine("Average :" + average);<br>
+            Console.WriteLine("Grade   :" + grade);<br>
+        }<br>
+    }<br>
+    class MultiLevel<br>
+    {<br>
+        public static void Main(string[] agrs)<br>
+        {<br>
+            MarksDetails Student1 = new MarksDetails("Shreya", 22, "Female", 202090001, "Msc", 5, new int[] { 77, 80, 98, 95, 90 });<br>
+            Student1.Display();<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -200,17 +200,17 @@ namespace ex3
 
 
 **5.C# program to calculate volumate of 2 boxes and find the recultant volume after addition of 2 boxes by implementing operator overloading**
-using System;
+using System;<br>
 
-namespace ex5
-{
-    class Box
-    {
-        float width;
-        float height;
-        float length;
+namespace ex5<br>
+{<br>
+    class Box<br>
+    {<br>
+        float width;<br>
+        float height;<br>
+        float length;<br>
 
-        public float Volume
+        public float Volume<br>
         {
             get { return width * height * length; }
         }
