@@ -31,6 +31,7 @@ namespace ex2<br>
     }<br>
 }<br>
 
+
 **OUTPUT**
 
 ![image](https://user-images.githubusercontent.com/97940851/154425191-a0b6b8b6-7a87-46de-bda0-e18f575a4ad1.png)
