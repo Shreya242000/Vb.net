@@ -671,6 +671,164 @@ namespace ex12
 
 ![image](https://user-images.githubusercontent.com/97940851/154630682-9f5f20bf-aa30-4675-aee5-3f5ae6f84fd0.png)
 
+**13.C# program to implement Icomparable Interface using system**
+
+using System;
+namespace ex13
+{
+    class Fraction : IComparable
+    {
+        int z, n;
+        public Fraction(int z, int n)
+        {
+            this.z = z;
+            this.n = n;
+        }
+        public static Fraction operator +(Fraction a, Fraction b)
+        {
+            return new Fraction(a.z * b.n + a.n * b.z, a.n * b.n);
+        }
+        public static Fraction operator *(Fraction a, Fraction b)
+        {
+            return new Fraction(a.z * b.z, a.n * b.n);
+        }
+        public int CompareTo(object obj)
+        {
+            Fraction f = (Fraction)obj;
+            if ((float)z / n < (float)f.z / f.n)
+                return -1;
+            else if ((float)z / n > (float)f.z / f.n)
+                return 1;
+            else
+                return 0;
+        }
+        public override string ToString()
+        {
+            return z + "/" + n;
+        }
+    }
+    class ICompInterface
+    {
+        public static void Main()
+        {
+            Fraction[] a = {
+ new Fraction(5,2),
+ new Fraction(29,6),
+ new Fraction(4,5),
+ new Fraction(10,8),
+ new Fraction(34,7)
+ };
+            Array.Sort(a);
+            Console.WriteLine("Implementing the IComparable Interface in " + "Displaying Fractions: ");
+            foreach (Fraction f in a)
+            {
+                Console.WriteLine(f + " ");
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154631353-6dfb9d26-e6f7-43bc-a216-5a0e8c34560c.png)
+
+
+**14.C# program to create Thread pools**
+
+using System;
+using System.Threading;
+namespace ex14
+{
+    class ThreadPoolProg
+    {
+        public void ThreadFun1(object obj)
+        {
+            int loop = 0;
+            for (loop = 0; loop <= 4; loop++)
+            {
+                Console.WriteLine("Thread1 is executing");
+            }
+        }
+        public void ThreadFun2(object obj)
+        {
+            int loop = 0;
+            for (loop = 0; loop <= 4; loop++)
+            {
+                Console.WriteLine("Thread2 is executing");
+            }
+        }
+        public static void Main()
+        {
+            ThreadPoolProg TP = new ThreadPoolProg();
+            for (int i = 0; i < 2; i++)
+            {
+                ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun1));
+                ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun2));
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154631704-4b540ead-c04d-41aa-ad7c-acde3a22270e.png)
+
+**15.C# program to demonstrate error handling using try,catch and finally block**
+
+using System;
+namespace ex15
+{
+    class ExceptionHandling
+    {
+        static void Main(string[] args)
+        {
+            Age a = new Age();
+            try
+            {
+                a.displayAge();
+            }
+            catch (AgeIsNegativeException e)
+            {
+                Console.WriteLine("AgeIsNegativeException: {0}", e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Execution of Finally block is done.");
+            }
+        }
+    }
+}
+public class AgeIsNegativeException : Exception
+{
+    public AgeIsNegativeException(string message) : base(message)
+    {
+    }
+}
+public class Age
+{
+    int age = -5;
+    public void displayAge()
+    {
+        if (age < 0)
+        {
+            throw (new AgeIsNegativeException("Age cannot be negative"));
+        }
+        else
+        {
+            Console.WriteLine("Age is: {0}", age);
+        }
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154632142-377b1db9-f89a-44b7-9ed5-f3b96272f7e9.png)
+
+
+
 
 
 
