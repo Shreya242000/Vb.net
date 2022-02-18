@@ -3,7 +3,7 @@
 using System;<br>
 
 namespace ex2<br>
-{<br>
+{
     class BinaryTriangle<br>
 
     {<br>
