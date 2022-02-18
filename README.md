@@ -3,7 +3,7 @@
 using System;<br>
 
 namespace ex2<br>
-{
+{<br>
     class BinaryTriangle<br>
 
     {<br>
@@ -21,7 +21,7 @@ namespace ex2<br>
                 }<br>
 
                 for (int j = 0; j < i; j++)<br>
-                {
+                {<br>
                     Console.Write(digit + " ");<br>
                     digit = (digit == 1) ? 0 : 1;<br>
                 }<br>
