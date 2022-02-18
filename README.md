@@ -629,43 +629,43 @@ namespace ex11
 
 **12.C# program to perform file comparision**
 
-using System;
-using System.IO;
+using System;<br>
+using System.IO;<br>
 
-namespace ex12
-{
-    class FileRead
-    {
-        public static void Main()
-        {
-            string file1;
-            string file2;
+namespace ex12<br>
+{<br>
+    class FileRead<br>
+    {<br>
+        public static void Main()<br>
+        {<br>
+            string file1;<br>
+            string file2;<br>
            
-            Console.Write("Enter the first file path:");
-            file1 = Console.ReadLine();
+            Console.Write("Enter the first file path:");<br>
+            file1 = Console.ReadLine();<br>
 
-            Console.Write("Enter the second file path:");
-            file2 = Console.ReadLine();
+            Console.Write("Enter the second file path:");<br>
+            file2 = Console.ReadLine();<br>
 
-            if (!File.Exists(file1))
-            {
-                Console.WriteLine("Second file does not exist!");
-            }
-            else if (!File.Exists(file2))
-            {
-                Console.WriteLine("Second file Does not exit!");
-            }
-            else if (File.ReadAllText(file1) == File.ReadAllText(file2))
-            {
-                Console.WriteLine("Both files contain in the same content"); ;
-            }
-            else
-            {
-                Console.WriteLine("Contents of files are not same");
-            }
-        }
-    }
-}
+            if (!File.Exists(file1))<br>
+            {<br>
+                Console.WriteLine("Second file does not exist!");<br>
+            }<br>
+            else if (!File.Exists(file2))<br>
+            {<br>
+                Console.WriteLine("Second file Does not exit!");<br>
+            }<br>
+            else if (File.ReadAllText(file1) == File.ReadAllText(file2))<br>
+            {<br>
+                Console.WriteLine("Both files contain in the same content"); ;<br>
+            }<br>
+            else<br>
+            {<br>
+                Console.WriteLine("Contents of files are not same");<br>
+            }<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -673,62 +673,62 @@ namespace ex12
 
 **13.C# program to implement Icomparable Interface using system**
 
-using System;
-namespace ex13
-{
-    class Fraction : IComparable
-    {
-        int z, n;
-        public Fraction(int z, int n)
-        {
-            this.z = z;
-            this.n = n;
-        }
-        public static Fraction operator +(Fraction a, Fraction b)
-        {
-            return new Fraction(a.z * b.n + a.n * b.z, a.n * b.n);
-        }
-        public static Fraction operator *(Fraction a, Fraction b)
-        {
-            return new Fraction(a.z * b.z, a.n * b.n);
-        }
-        public int CompareTo(object obj)
-        {
-            Fraction f = (Fraction)obj;
-            if ((float)z / n < (float)f.z / f.n)
-                return -1;
-            else if ((float)z / n > (float)f.z / f.n)
-                return 1;
-            else
-                return 0;
-        }
-        public override string ToString()
-        {
-            return z + "/" + n;
-        }
-    }
-    class ICompInterface
-    {
-        public static void Main()
-        {
-            Fraction[] a = {
- new Fraction(5,2),
- new Fraction(29,6),
- new Fraction(4,5),
- new Fraction(10,8),
- new Fraction(34,7)
- };
-            Array.Sort(a);
-            Console.WriteLine("Implementing the IComparable Interface in " + "Displaying Fractions: ");
-            foreach (Fraction f in a)
-            {
-                Console.WriteLine(f + " ");
-            }
-            Console.WriteLine();
-            Console.ReadLine();
-        }
-    }
-}
+using System;<br>
+namespace ex13<br>
+{<br>
+    class Fraction : IComparable<br>
+    {<br>
+        int z, n;<br>
+        public Fraction(int z, int n)<br>
+        {<br>
+            this.z = z;<br>
+            this.n = n;<br>
+        }<br>
+        public static Fraction operator +(Fraction a, Fraction b)<br>
+        {<br>
+            return new Fraction(a.z * b.n + a.n * b.z, a.n * b.n);<br>
+        }<br>
+        public static Fraction operator *(Fraction a, Fraction b)<br>
+        {<br>
+            return new Fraction(a.z * b.z, a.n * b.n);<br>
+        }<br>
+        public int CompareTo(object obj)<br>
+        {<br>
+            Fraction f = (Fraction)obj;<br>
+            if ((float)z / n < (float)f.z / f.n)<br>
+                return -1;<br>
+            else if ((float)z / n > (float)f.z / f.n)<br>
+                return 1;<br>
+            else<br>
+                return 0;<br>
+        }<br>
+        public override string ToString()<br>
+        {<br>
+            return z + "/" + n;<br>
+        }<br>
+    }<br>
+    class ICompInterface<br>
+    {<br>
+        public static void Main()<br>
+        {<br>
+            Fraction[] a = {<br>
+ new Fraction(5,2),<br>
+ new Fraction(29,6),<br>
+ new Fraction(4,5),<br>
+ new Fraction(10,8),<br>
+ new Fraction(34,7)<br>
+ };<br>
+            Array.Sort(a);<br>
+            Console.WriteLine("Implementing the IComparable Interface in " + "Displaying Fractions: ");<br>
+            foreach (Fraction f in a)<br>
+            {<br>
+                Console.WriteLine(f + " ");<br>
+            }<br>
+            Console.WriteLine();<br>
+            Console.ReadLine();<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -737,40 +737,40 @@ namespace ex13
 
 **14.C# program to create Thread pools**
 
-using System;
-using System.Threading;
-namespace ex14
-{
-    class ThreadPoolProg
-    {
-        public void ThreadFun1(object obj)
-        {
-            int loop = 0;
-            for (loop = 0; loop <= 4; loop++)
-            {
-                Console.WriteLine("Thread1 is executing");
-            }
-        }
-        public void ThreadFun2(object obj)
-        {
-            int loop = 0;
-            for (loop = 0; loop <= 4; loop++)
-            {
-                Console.WriteLine("Thread2 is executing");
-            }
-        }
-        public static void Main()
-        {
-            ThreadPoolProg TP = new ThreadPoolProg();
-            for (int i = 0; i < 2; i++)
-            {
-                ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun1));
-                ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun2));
-            }
-            Console.ReadKey();
-        }
-    }
-}
+using System;<br>
+using System.Threading;<br>
+namespace ex14<br>
+{<br>
+    class ThreadPoolProg<br>
+    {<br>
+        public void ThreadFun1(object obj)<br>
+        {<br>
+            int loop = 0;<br>
+            for (loop = 0; loop <= 4; loop++)<br>
+            {<br>
+                Console.WriteLine("Thread1 is executing");<br>
+            }<br>
+        }<br>
+        public void ThreadFun2(object obj)<br>
+        {<br>
+            int loop = 0;<br>
+            for (loop = 0; loop <= 4; loop++)<br>
+            {<br>
+                Console.WriteLine("Thread2 is executing");<br>
+            }<br>
+        }<br>
+        public static void Main()<br>
+        {<br>
+            ThreadPoolProg TP = new ThreadPoolProg();<br>
+            for (int i = 0; i < 2; i++)<br>
+            {<br>
+                ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun1));<br>
+                ThreadPool.QueueUserWorkItem(new WaitCallback(TP.ThreadFun2));<br>
+            }<br>
+            Console.ReadKey();<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -778,50 +778,50 @@ namespace ex14
 
 **15.C# program to demonstrate error handling using try,catch and finally block**
 
-using System;
-namespace ex15
-{
-    class ExceptionHandling
-    {
-        static void Main(string[] args)
-        {
-            Age a = new Age();
-            try
-            {
-                a.displayAge();
-            }
-            catch (AgeIsNegativeException e)
-            {
-                Console.WriteLine("AgeIsNegativeException: {0}", e.Message);
-            }
-            finally
-            {
-                Console.WriteLine("Execution of Finally block is done.");
-            }
-        }
-    }
-}
-public class AgeIsNegativeException : Exception
-{
-    public AgeIsNegativeException(string message) : base(message)
-    {
-    }
-}
-public class Age
-{
-    int age = -5;
-    public void displayAge()
-    {
-        if (age < 0)
-        {
-            throw (new AgeIsNegativeException("Age cannot be negative"));
-        }
-        else
-        {
-            Console.WriteLine("Age is: {0}", age);
-        }
-    }
-}
+using System;<br>
+namespace ex15<br>
+{<br>
+    class ExceptionHandling<br>
+    {<br>
+        static void Main(string[] args)<br>
+        {<br>
+            Age a = new Age();<br>
+            try<br>
+            {<br>
+                a.displayAge();<br>
+            }<br>
+            catch (AgeIsNegativeException e)<br>
+            {<br>
+                Console.WriteLine("AgeIsNegativeException: {0}", e.Message);<br>
+            }<br>
+            finally<br>
+            {<br>
+                Console.WriteLine("Execution of Finally block is done.");<br>
+            }<br>
+        }<br>
+    }<br>
+}<br>
+public class AgeIsNegativeException : Exception<br>
+{<br>
+    public AgeIsNegativeException(string message) : base(message)<br>
+    {<br>
+    }<br>
+}<br>
+public class Age<br>
+{<br>
+    int age = -5;<br>
+    public void displayAge()<br>
+    {<br>
+        if (age < 0)<br>
+        {<br>
+            throw (new AgeIsNegativeException("Age cannot be negative"));<br>
+        }<br>
+        else<br>
+        {<br>
+            Console.WriteLine("Age is: {0}", age);<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
