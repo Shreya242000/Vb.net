@@ -34,46 +34,6 @@ namespace exersices<br>
 
 
 
-**4.C# program to create a Gray code**
-using System;<br>
-
-namespace Ex4<br>
-{<br>
-    class GrayCode<br>
-    {<br>
-        static int getGray(int n)<br>
-        {<br>
-            return n ^ (n >> 1);<br>
-        }<br>
-
-        static void Main(string[] args)<br>
-        {<br>
-            int InputNum, GrayNum;<br>
-            Console.Write("\nEnter the decimal number:");<br>
-            InputNum = Convert.ToInt32(Console.ReadLine());<br>
-
-            Console.WriteLine("\nbinary equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));<br>
-
-            GrayNum = getGray(InputNum);<br>
-            Console.WriteLine("\n Gray code equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));<br>
-        }<br>
-
-    }<br>
-}<br>
-
-
-**OUTPUT**
-
-
-
-
-
-
-
-
-
-
-
 
 **3.C# program to illustrate multilevel Inheritance with virtual methods**
 using System;<br>
@@ -188,6 +148,40 @@ namespace ex3<br>
 
 ![image](https://user-images.githubusercontent.com/97940851/154623000-35a144e4-2645-49f7-9978-c2a6fd88d76f.png)
 
+
+
+
+
+
+**4.C# program to create a Gray code**
+using System;<br>
+
+namespace Ex4<br>
+{<br>
+    class GrayCode<br>
+    {<br>
+        static int getGray(int n)<br>
+        {<br>
+            return n ^ (n >> 1);<br>
+        }<br>
+
+        static void Main(string[] args)<br>
+        {<br>
+            int InputNum, GrayNum;<br>
+            Console.Write("\nEnter the decimal number:");<br>
+            InputNum = Convert.ToInt32(Console.ReadLine());<br>
+
+            Console.WriteLine("\nbinary equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));<br>
+
+            GrayNum = getGray(InputNum);<br>
+            Console.WriteLine("\n Gray code equivalent of {0}:  {1} ", InputNum, Convert.ToString(InputNum, 2));<br>
+        }<br>
+
+    }<br>
+}<br>
+
+
+**OUTPUT**
 
 
 
