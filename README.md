@@ -211,40 +211,40 @@ namespace ex5<br>
         float length;<br>
 
         public float Volume<br>
-        {
-            get { return width * height * length; }
-        }
-        public Box(float width, float height, float length)
-        {
-            this.width = width;
-            this.height = height;
-            this.length = height;
-        }
-        public static float operator +(Box box1, Box box2)
-        {
-            return box1.Volume + box2.Volume;
-        }
-        public override string ToString()
-        {
-            return base.ToString();
-            {
-                return "box with width" + width + ",height" + height + "and length" + length;
-            }
-        }
-        class OperatorOverloading
-        {
-            public static void Main()
-            {
-                Box box1 = new Box(10, 20, 30);
-                Box box2 = new Box(25, 32, 15);
+        {<br>
+            get { return width * height * length; }<br>
+        }<br>
+        public Box(float width, float height, float length)<br>
+        {<br>
+            this.width = width;<br>
+            this.height = height;<br>
+            this.length = height;<br>
+        }<br>
+        public static float operator +(Box box1, Box box2)<br>
+        {<br>
+            return box1.Volume + box2.Volume;<br>
+        }<br>
+        public override string ToString()<br>
+        {<br>
+            return base.ToString();<br>
+            {<br>
+                return "box with width" + width + ",height" + height + "and length" + length;<br>
+            }<br>
+        }<br>
+        class OperatorOverloading<br>
+        {<br>
+            public static void Main()<br>
+            {<br>
+                Box box1 = new Box(10, 20, 30);<br>
+                Box box2 = new Box(25, 32, 15);<br>
 
-                Console.WriteLine("Volume of {0} is:{1}", box1, box1.Volume);
-                Console.WriteLine("Volume of {0} is:{1}", box2, box2.Volume);
-                Console.WriteLine("Volume after adding boxes:{0}", box1 + box2);
-            }
-        }
-    }
-}
+                Console.WriteLine("Volume of {0} is:{1}", box1, box1.Volume);<br>
+                Console.WriteLine("Volume of {0} is:{1}", box2, box2.Volume);<br>
+                Console.WriteLine("Volume after adding boxes:{0}", box1 + box2);<br>
+            }<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -253,43 +253,43 @@ namespace ex5<br>
 
 
 **6.C# program to implement principle of delegate converting input string to uppercase first last and entire string**
-using System;
+using System;<br>
 
-namespace ex6
-{
-    class Delegates
-    {
-        delegate string UppercaseDelegate(string input);
-        static string UppercaseFirst(string input)
-        {
-            Char[] buffer = input.ToCharArray();
-            buffer[0] = char.ToUpper(buffer[0]);
-            return new string(buffer);
-        }
-        static string UppercaseLast(string input)
-        { 
-          Char[] buffer = input.ToCharArray();
-          buffer[buffer.Length-1] = char.ToUpper(buffer[buffer.Length-1]);
-          return new string (buffer);
-        }
-        static string UppercaseAll(string input)
-        {
-            return input.ToUpper();
-        }
-        static void WriteOutput(string input,UppercaseDelegate del)
-            {
-            Console.WriteLine("Input String:{0}", input);
-            Console.WriteLine("Output String:{0}",del( input));
-        }
-        static void Main()
-        {
-            WriteOutput("tom", new UppercaseDelegate(UppercaseFirst));
-            WriteOutput("tom", new UppercaseDelegate(UppercaseLast));
-            WriteOutput("tom", new UppercaseDelegate(UppercaseAll));
-            Console.ReadLine();
-        }
-    }
-    }
+namespace ex6<br>
+{<br>
+    class Delegates<br>
+    {<br>
+        delegate string UppercaseDelegate(string input);<br>
+        static string UppercaseFirst(string input)<br>
+        {<br>
+            Char[] buffer = input.ToCharArray();<br>
+            buffer[0] = char.ToUpper(buffer[0]);<br>
+            return new string(buffer);<br>
+        }<br>
+        static string UppercaseLast(string input)<br>
+        { <br>
+          Char[] buffer = input.ToCharArray();<br>
+          buffer[buffer.Length-1] = char.ToUpper(buffer[buffer.Length-1]);<br>
+          return new string (buffer);<br>
+        }<br>
+        static string UppercaseAll(string input)<br>
+        {<br>
+            return input.ToUpper();<br>
+        }<br>
+        static void WriteOutput(string input,UppercaseDelegate del)<br>
+            {<br>
+            Console.WriteLine("Input String:{0}", input);<br>
+            Console.WriteLine("Output String:{0}",del( input));<br>
+        }<br>
+        static void Main()<br>
+        {<br>
+            WriteOutput("tom", new UppercaseDelegate(UppercaseFirst));<br>
+            WriteOutput("tom", new UppercaseDelegate(UppercaseLast));<br>
+            WriteOutput("tom", new UppercaseDelegate(UppercaseAll));<br>
+            Console.ReadLine();<br>
+        }<br>
+    }<br>
+    }<br>
     
 **OUTPUT**
 
