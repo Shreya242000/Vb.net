@@ -188,7 +188,12 @@ namespace ex3
 }
 
 **OUTPUT**
+
 ![image](https://user-images.githubusercontent.com/97940851/154623000-35a144e4-2645-49f7-9978-c2a6fd88d76f.png)
+
+
+
+
 
 
 
@@ -242,6 +247,7 @@ namespace ex5
 }
 
 **OUTPUT**
+
 ![image](https://user-images.githubusercontent.com/97940851/154622907-6f7e5bc1-4872-4fac-a10b-95353d48f475.png)
 
 
