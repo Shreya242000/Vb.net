@@ -363,6 +363,317 @@ namespace ex8
 
 ![image](https://user-images.githubusercontent.com/97940851/154624761-edc9a8a6-eb98-4935-934d-6009a8e4497c.png)
 
+**9.C# program that beanchmark 2D,jagged array allocation**
+
+using System;using System;
+using System.Diagnostics;
+
+namespace ex9
+{
+    class BenchmarkAllocation
+
+    {
+        const int _max = 10000;
+        static void Main(string[] args)
+        {
+            var Arr2D = new int[100, 100];
+            var ArrJagged = new int[100][];
+
+            for (int i = 0; i < 100; i++)
+            {
+                ArrJagged[i] = new int[100];
+            }
+            var Stopwatch2D = Stopwatch.StartNew();
+            for (int i = 0; i < _max; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    for (int k = 0; k < 100; k++)
+                    {
+                        Arr2D[j, k] = k;
+                    }
+                }
+            }
+            Stopwatch2D.Stop();
+
+            var StopwatchJagged = Stopwatch.StartNew();
+            for (int i = 0; i < _max; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    for (int k = 0; k < 100; k++)
+                    {
+                        ArrJagged[j][k] = k;
+                    }
+                }
+            }
+
+            StopwatchJagged.Stop();
+            Console.Write("\n Time taken for allocation in case of 2D array:");
+            Console.WriteLine(Stopwatch2D.Elapsed.TotalMilliseconds + "miliseconds");
+            Console.Write("\n Time taken for allocation in cse Jagged array:");
+            Console.WriteLine(StopwatchJagged.Elapsed.TotalMilliseconds+ "miliseconds");
+
+
+        }
+    }
+}
+
+using System.Diagnostics;
+
+namespace ex9
+{
+    class BenchmarkAllocation
+
+    {
+        const int _max = 10000;
+        static void Main(string[] args)
+        {
+            var Arr2D = new int[100, 100];
+            var ArrJagged = new int[100][];
+
+            for (int i = 0; i < 100; i++)
+            {
+                ArrJagged[i] = new int[100];
+            }
+            var Stopwatch2D = Stopwatch.StartNew();
+            for (int i = 0; i < _max; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    for (int k = 0; k < 100; k++)
+                    {
+                        Arr2D[j, k] = k;
+                    }
+                }
+            }
+            Stopwatch2D.Stop();
+
+            var StopwatchJagged = Stopwatch.StartNew();
+            for (int i = 0; i < _max; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    for (int k = 0; k < 100; k++)
+                    {
+                        ArrJagged[j][k] = k;
+                    }
+                }
+            }
+
+            StopwatchJagged.Stop();
+            Console.Write("\n Time taken for allocation in case of 2D array:");
+            Console.WriteLine(Stopwatch2D.Elapsed.TotalMilliseconds + "miliseconds");
+            Console.Write("\n Time taken for allocation in cse Jagged array:");
+            Console.WriteLine(StopwatchJagged.Elapsed.TotalMilliseconds+ "miliseconds");
+
+
+        }
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154628508-a298606d-23f2-46dc-b74f-3d7f8ef65710.png)
+
+
+**10.C# program to find the sum of the valuve on diagnal of the matrix**
+
+using System;
+
+namespace ex10
+{
+    class SumOfDiagnonals
+    {
+        static void Main(string[] args)
+        {
+            int MaxRow, MaxCol, Sum = 0;
+            int[,] Matrix;
+
+            Console.WriteLine("\n----SUM OF DIAGNOL OF MATRIX-----\n");
+            Console.WriteLine("\n Enter the number of rows:");
+            MaxRow = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\n Enter the number of columns:");
+            MaxCol = Convert.ToInt32(Console.ReadLine());
+
+            if (MaxRow != MaxCol)
+            {
+                Console.WriteLine("\n The Dimension entered are not of squre Matrix:");
+                Console.WriteLine("\nExiting the program..");
+                return;
+            }
+            Matrix = new int[MaxRow, MaxCol];
+
+            for (int i=0; i<MaxRow; i++)
+            {
+                for(int j=0;j<MaxCol;j++)
+                {
+                    Console.Write("\nEnter the {0},{1}th element of the matrix:", (i + 1), (j + 1));
+                    Matrix[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            Console.WriteLine("\n The enterd Matrix is:");
+            for (int i = 0; i < MaxRow; i++)
+            {
+                for (int j = 0; j < MaxCol; j++)
+                {
+                    Console.Write(" " + Matrix[i, j]);
+
+                    if (i == j)
+                    {
+                        Sum += Matrix[i, j];
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n The Sum Of Diagonal is" + Sum);
+            }
+
+
+        }
+    }
+   
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154628852-f360f892-652c-489b-ac06-26817fd1ade7.png)
+
+**11.C# program to create a file,check the existance of a file and Read the contents of the file **
+
+using System;
+using System.IO;
+
+namespace ex11
+{
+    class FileRead
+    {
+        static void Main()
+        {
+            String fileName;
+            while (true)
+            {
+                Console.WriteLine("\n--------MENU-------");
+                Console.WriteLine("\n1.Create a File");
+                Console.WriteLine("\n 2.Existence of the file");
+                Console.WriteLine("\n 3.Read the Contents of the file");
+                Console.WriteLine("\n 4.Exit");
+                Console.Write("\n Enter your choice:");
+                int ch = int.Parse(Console.ReadLine());
+                switch (ch)
+
+                {
+                    case 1:
+                        Console.Write("\n Enter the file name to create:");
+                        fileName = Console.ReadLine();
+                        Console.WriteLine("\n Write the Contents to the File:\n");
+                         string r = Console.ReadLine();
+                        using (StreamWriter fileStr = File.CreateText(fileName))
+                        {
+                            fileStr.WriteLine(r);
+                        }
+                        Console.WriteLine("File is Created...");
+                        break;
+
+                    case 2:
+                        Console.Write("\n Enter the file name:");
+                        fileName = Console.ReadLine();
+                        if (File.Exists(fileName))
+                        {
+                            Console.WriteLine("File Exists..");
+                        }
+                        else
+                        {
+                            Console.WriteLine("File does not exist in the current dirctory!");
+                        }
+                        break;
+
+                    case 3:
+                        Console.Write("Enter the file name to read the contents:\n");
+                        fileName = Console.ReadLine();
+                        if (File.Exists(fileName))
+                        {
+                            using (StreamReader sr = File.OpenText(fileName))
+                            {
+                                string s = "";
+                                Console.WriteLine("Here is the content of the file:");
+                                while ((s = sr.ReadLine()) != null)
+                                {
+                                    Console.WriteLine(s);
+                                }
+                                Console.WriteLine("");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("File does not exists");
+                        }
+                        break;
+
+                    case 4:
+                        Console.WriteLine("\n Existing...");
+                        return;
+
+                    default:
+                        Console.WriteLine("\n Invalid choice");
+                        break;
+                }
+            }
+        }
+
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154629978-3e793434-c1cb-4e14-b2d8-37029da6339a.png)
+
+
+**12.C# program to perform file comparision**
+
+using System;
+using System.IO;
+
+namespace ex12
+{
+    class FileRead
+    {
+        public static void Main()
+        {
+            string file1;
+            string file2;
+           
+            Console.Write("Enter the first file path:");
+            file1 = Console.ReadLine();
+
+            Console.Write("Enter the second file path:");
+            file2 = Console.ReadLine();
+
+            if (!File.Exists(file1))
+            {
+                Console.WriteLine("Second file does not exist!");
+            }
+            else if (!File.Exists(file2))
+            {
+                Console.WriteLine("Second file Does not exit!");
+            }
+            else if (File.ReadAllText(file1) == File.ReadAllText(file2))
+            {
+                Console.WriteLine("Both files contain in the same content"); ;
+            }
+            else
+            {
+                Console.WriteLine("Contents of files are not same");
+            }
+        }
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/154630682-9f5f20bf-aa30-4675-aee5-3f5ae6f84fd0.png)
+
+
+
+
 
 
 
