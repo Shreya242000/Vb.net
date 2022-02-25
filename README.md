@@ -842,7 +842,41 @@ using System;
    }  
    
    **OUTPUT**
+   
    ![image](https://user-images.githubusercontent.com/97940851/155657439-d6233097-7af8-40c8-80e2-e6626e63b4bb.png)
+   
+   **Prime number**
+   
+   using System;
+public class ex16
+{
+    public static void Main(string[] args)
+    {
+        int n, i, m = 0, flag = 0;
+        Console.Write("Enter the Number to check Prime: ");
+        n = int.Parse(Console.ReadLine());
+        m = n / 2;
+        for (i = 2; i <= m; i++)
+        {
+            if (n % i == 0)
+            {
+                Console.Write("Number is not Prime.");
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0)
+            Console.Write("Number is Prime.");
+    }
+}
+   
+   
+  **OUTPUT**
+   
+   ![image](https://user-images.githubusercontent.com/97940851/155658678-723793ca-a5fb-4016-9cb3-43807086b603.png)
+
+    ![image](https://user-images.githubusercontent.com/97940851/155658566-b373816e-c533-4f4e-9f86-d08f86de85fe.png)
+
    
    
 
