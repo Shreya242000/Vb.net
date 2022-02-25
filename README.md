@@ -924,27 +924,27 @@ public class ex17<br>
    
   **Palindrome**
   
-  using System;
-public class ex18
-{
-    public static void Main(string[] args)
-    {
-        int n, r, sum = 0, temp;
-        Console.Write("Enter the Number: ");
-        n = int.Parse(Console.ReadLine());
-        temp = n;
-        while (n > 0)
-        {
-            r = n % 10;
-            sum = (sum * 10) + r;
-            n = n / 10;
-        }
-        if (temp == sum)
-            Console.Write("Number is Palindrome.");
-        else
-            Console.Write("Number is not Palindrome");
-    }
-}
+  using System;<br>
+public class ex18<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, r, sum = 0, temp;<br>
+        Console.Write("Enter the Number: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        temp = n;<br>
+        while (n > 0)<br>
+        {<br>
+            r = n % 10;<br>
+            sum = (sum * 10) + r;<br>
+            n = n / 10;<br>
+        }<br>
+        if (temp == sum)<br>
+            Console.Write("Number is Palindrome.");<br>
+        else<br>
+            Console.Write("Number is not Palindrome");<br>
+    }<br>
+}<br>
   
   
   
