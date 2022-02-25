@@ -876,6 +876,41 @@ public class ex16
    ![image](https://user-images.githubusercontent.com/97940851/155658678-723793ca-a5fb-4016-9cb3-43807086b603.png)
 
    ![image](https://user-images.githubusercontent.com/97940851/155659122-5a6cc4e0-1df1-411f-9cb5-5030b10b2636.png)
+   
+   
+  **Palindrome**
+  
+  using System;
+public class PalindromeExample
+{
+    public static void Main(string[] args)
+    {
+        int n, r, sum = 0, temp;
+        Console.Write("Enter the Number: ");
+        n = int.Parse(Console.ReadLine());
+        temp = n;
+        while (n > 0)
+        {
+            r = n % 10;
+            sum = (sum * 10) + r;
+            n = n / 10;
+        }
+        if (temp == sum)
+            Console.Write("Number is Palindrome.");
+        else
+            Console.Write("Number is not Palindrome");
+    }
+}
+  
+  
+  
+  **OUTPUT**
+  
+   ![image](https://user-images.githubusercontent.com/97940851/155659836-f569f940-e582-4937-8f88-8c853c395e9f.png)
+   
+   ![image](https://user-images.githubusercontent.com/97940851/155660513-4705ad29-438e-4403-a849-928cc0b71b2b.png)
+
+
 
    
 
