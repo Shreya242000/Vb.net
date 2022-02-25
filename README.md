@@ -962,6 +962,58 @@ public class ex20
 
 ![image](https://user-images.githubusercontent.com/97940851/155662476-12b49ca4-bd40-4ffa-b5ea-01d2e33d6bae.png)
 
+**Reversed number**
+
+using System;
+public class ex21
+{
+    public static void Main(string[] args)
+    {
+        int n, reverse = 0, rem;
+        Console.Write("Enter a number: ");
+        n = int.Parse(Console.ReadLine());
+        while (n != 0)
+        {
+            rem = n % 10;
+            reverse = reverse * 10 + rem;
+            n /= 10;
+        }
+        Console.Write("Reversed Number: " + reverse);
+    }
+}
+
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/155663443-8244bc9d-2343-4143-b440-53a201d095dd.png)
+
+
+**Swap two numbers without using third variable**
+
+using System;
+public class ex22
+{
+    public static void Main(string[] args)
+    {
+        int a = 5, b = 10;
+        Console.WriteLine("Before swap a= " + a + " b= " + b);
+        a = a * b; //a=50 (5*10)      
+        b = a / b; //b=5 (50/10)      
+        a = a / b; //a=10 (50/5)    
+        Console.Write("After swap a= " + a + " b= " + b);
+    }
+}
+
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/155663752-afc58582-b2d7-49b1-8288-df44844a818a.png)
+
+
+
+
+
+
 
    
    
