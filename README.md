@@ -820,6 +820,34 @@ public class Age<br>
 ![image](https://user-images.githubusercontent.com/97940851/154632142-377b1db9-f89a-44b7-9ed5-f3b96272f7e9.png)
 
 
+**Fibonocie number**
+
+using System;  
+  public class FibonacciExample  
+   {  
+     public static void Main(string[] args)  
+      {  
+         int n1=0,n2=1,n3,i,number;    
+         Console.Write("Enter the number of elements: ");    
+         number = int.Parse(Console.ReadLine());  
+         Console.Write(n1+" "+n2+" "); //printing 0 and 1    
+         for(i=2;i<number;++i) //loop starts from 2 because 0 and 1 are already printed    
+         {    
+          n3=n1+n2;    
+          Console.Write(n3+" ");    
+          n1=n2;    
+          n2=n3;    
+         }    
+      }  
+   }  
+   
+   **OUTPUT**
+   ![image](https://user-images.githubusercontent.com/97940851/155657439-d6233097-7af8-40c8-80e2-e6626e63b4bb.png)
+   
+   
+
+
+
 
 
 
