@@ -881,7 +881,7 @@ public class ex16
   **Palindrome**
   
   using System;
-public class PalindromeExample
+public class ex18
 {
     public static void Main(string[] args)
     {
@@ -909,6 +909,65 @@ public class PalindromeExample
    ![image](https://user-images.githubusercontent.com/97940851/155659836-f569f940-e582-4937-8f88-8c853c395e9f.png)
    
    ![image](https://user-images.githubusercontent.com/97940851/155660513-4705ad29-438e-4403-a849-928cc0b71b2b.png)
+   
+   
+   **Factorial**
+   
+   using System;
+public class ex19
+{
+    public static void Main(string[] args)
+    {
+        int i, fact = 1, number;
+        Console.Write("Enter any Number: ");
+        number = int.Parse(Console.ReadLine());
+        for (i = 1; i <= number; i++)
+        {
+            fact = fact * i;
+        }
+        Console.Write("Factorial of " + number + " is: " + fact);
+    }
+}
+   
+   
+   
+   **OUTPUT**
+   
+   ![image](https://user-images.githubusercontent.com/97940851/155661737-0581f2c7-24b5-4fed-baa9-c56a50cb45dc.png)
+   
+   
+   **Sum of Digits**
+   
+   using System;
+public class ex20
+{
+    public static void Main(string[] args)
+    {
+        int n, sum = 0, m;
+        Console.Write("Enter a number: ");
+        n = int.Parse(Console.ReadLine());
+        while (n > 0)
+        {
+            m = n % 10;
+            sum = sum + m;
+            n = n / 10;
+        }
+        Console.Write("Sum is= " + sum);
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/155662355-9354679a-3b77-481a-87aa-4f8206f5e12a.png)
+
+![image](https://user-images.githubusercontent.com/97940851/155662476-12b49ca4-bd40-4ffa-b5ea-01d2e33d6bae.png)
+
+
+   
+   
+
+
+
 
 
 
