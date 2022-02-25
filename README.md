@@ -875,9 +875,8 @@ public class ex16
    
    ![image](https://user-images.githubusercontent.com/97940851/155658678-723793ca-a5fb-4016-9cb3-43807086b603.png)
 
-    ![image](https://user-images.githubusercontent.com/97940851/155658566-b373816e-c533-4f4e-9f86-d08f86de85fe.png)
+   ![image](https://user-images.githubusercontent.com/97940851/155659122-5a6cc4e0-1df1-411f-9cb5-5030b10b2636.png)
 
-   
    
 
 
