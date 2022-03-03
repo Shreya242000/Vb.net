@@ -1179,6 +1179,41 @@ public class PrintExample<br>
 ![image](https://user-images.githubusercontent.com/97940851/156504836-17142930-2242-4d9b-8740-83af5d2025e2.png)
 
 
+**Number Triangle**
+
+using System;<br>  
+  public class PrintExample<br>    
+   { <br>  
+     public static void Main(string[] args) <br>   
+      { <br>   
+       int  i,j,k,l,n;<br>             
+       Console.Write("Enter the Range=");<br>      
+       n= int.Parse(Console.ReadLine());<br>       
+       for(i=1; i<=n; i++)<br>        
+       {<br>            
+        for(j=1; j<=n-i; j++)<br>        
+        {<br>        
+         Console.Write(" ");<br>        
+        }<br>        
+        for(k=1;k<=i;k++)<br>        
+        {<br>        
+         Console.Write(k);<br>        
+        }<br>        
+        for(l=i-1;l>=1;l--)<br>        
+        {<br>        
+        Console.Write(l);<br>        
+        }<br>        
+        Console.Write("\n");<br>        
+       }<br>         
+   }<br>    
+  }<br>    
+  
+  **OUTPUT**
+  
+  ![image](https://user-images.githubusercontent.com/97940851/156506392-4c395ae0-4f21-494c-987c-d51ae6876b52.png)
+
+
+
 
 
 
