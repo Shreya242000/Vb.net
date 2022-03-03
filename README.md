@@ -1150,6 +1150,36 @@ using System;<br>
 ![image](https://user-images.githubusercontent.com/97940851/156502100-b190c5d7-c6b5-43b9-9140-706f6d6eedf6.png)
 
 
+**Alphabet Triangle**
+
+using System;<br>
+public class PrintExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        char ch = 'A';<br>
+        int i, j, k, m;<br>
+        for (i = 1; i <= 5; i++)<br>
+        {<br>
+            for (j = 5; j >= i; j--)<br>
+                Console.Write(" ");<br>
+            for (k = 1; k <= i; k++)<br>
+                Console.Write(ch++);<br>
+            ch--;<br>
+            for (m = 1; m < i; m++)<br>
+                Console.Write(--ch);<br>
+            Console.Write("\n");<br>
+            ch = 'A';<br>
+        }<br>
+    }<br>
+}<br>
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/156504836-17142930-2242-4d9b-8740-83af5d2025e2.png)
+
+
+
 
 
 
