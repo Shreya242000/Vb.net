@@ -1055,6 +1055,101 @@ public class ex22<br>
 
 
 
+**Decimal to Binary**
+
+using System;
+public class ConversionExample
+{
+    public static void Main(string[] args)
+    {
+        int n, i;
+        int[] a = new int[10];
+        Console.Write("Enter the number to convert: ");
+        n = int.Parse(Console.ReadLine());
+        for (i = 0; n > 0; i++)
+        {
+            a[i] = n % 2;
+            n = n / 2;
+        }
+        Console.Write("Binary of the given number= ");
+        for (i = i - 1; i >= 0; i--)
+        {
+            Console.Write(a[i]);
+        }
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/156501240-5134a011-5171-4f27-bbdd-81f87aeefed1.png)
+
+
+**Convert number in character**
+
+using System;  
+  public class ConversionExample  
+   {  
+     public static void Main(string[] args)  
+      {  
+       int n,sum=0,r;     
+       Console.Write("Enter the Number= ");    
+       n= int.Parse(Console.ReadLine());     
+       while(n>0)      
+       {      
+        r=n%10;      
+        sum=sum*10+r;      
+        n=n/10;      
+       }      
+       n=sum;      
+       while(n>0)      
+       {      
+        r=n%10;      
+        switch(r)      
+        {      
+         case 1:      
+         Console.Write("one ");  
+         break;      
+         case 2:      
+         Console.Write("two ");      
+         break;      
+         case 3:      
+         Console.Write("three ");    
+         break;      
+         case 4:      
+         Console.Write("four ");    
+         break;      
+         case 5:      
+         Console.Write("five ");    
+         break;      
+         case 6:      
+         Console.Write("six ");     
+         break;      
+         case 7:    
+         Console.Write("seven ");    
+         break;    
+         case 8:      
+         Console.Write("eight ");      
+         break;      
+         case 9:      
+         Console.Write("nine ");    
+         break;      
+         case 0:      
+         Console.Write("zero ");    
+         break;      
+         default:      
+         Console.Write("tttt ");      
+         break;      
+        }   
+        n=n/10;      
+       }
+   }  
+  }  
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/156502100-b190c5d7-c6b5-43b9-9140-706f6d6eedf6.png)
+
+
 
 
 
