@@ -1211,7 +1211,37 @@ using System;<br>
   **OUTPUT**
   
   ![image](https://user-images.githubusercontent.com/97940851/156506392-4c395ae0-4f21-494c-987c-d51ae6876b52.png)
+  
+  
+  **Fibonacci Triangle**
+  sing System;<br>
+public class PrintExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int a = 0, b = 1, i, c, n, j;<br>
+        Console.Write("Enter the limit: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        for (i = 1; i <= n; i++)<br>
+        {<br>
+            a = 0;<br>
+            b = 1;<br>
+            Console.Write(b + "\t");<br>
+            for (j = 1; j < i; j++)<br>
+            {<br>
+                c = a + b;<br>
+                Console.Write(c + "\t");<br>
+                a = b;<br>
+                b = c;<br>
+            }<br>
+            Console.Write("\n");<br>
+        }<br>
+    }<br>
+}<br>
 
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/156515360-3951956a-1c10-4535-b87b-49d3267f2e00.png)
 
 
 
