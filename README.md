@@ -1057,27 +1057,27 @@ public class ex22<br>
 
 **Decimal to Binary**
 
-using System;
-public class ConversionExample
-{
-    public static void Main(string[] args)
-    {
-        int n, i;
-        int[] a = new int[10];
-        Console.Write("Enter the number to convert: ");
-        n = int.Parse(Console.ReadLine());
-        for (i = 0; n > 0; i++)
-        {
-            a[i] = n % 2;
-            n = n / 2;
-        }
-        Console.Write("Binary of the given number= ");
-        for (i = i - 1; i >= 0; i--)
-        {
-            Console.Write(a[i]);
-        }
-    }
-}
+using System;<br>
+public class ConversionExample<br>
+{<br>
+    public static void Main(string[] args)<br>
+    {<br>
+        int n, i;<br>
+        int[] a = new int[10];<br>
+        Console.Write("Enter the number to convert: ");<br>
+        n = int.Parse(Console.ReadLine());<br>
+        for (i = 0; n > 0; i++)<br>
+        {<br>
+            a[i] = n % 2;<br>
+            n = n / 2;<br>
+        }<br>
+        Console.Write("Binary of the given number= ");<br>
+        for (i = i - 1; i >= 0; i--)<br>
+        {<br>
+            Console.Write(a[i]);<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -1086,64 +1086,64 @@ public class ConversionExample
 
 **Convert number in character**
 
-using System;  
-  public class ConversionExample  
-   {  
-     public static void Main(string[] args)  
-      {  
-       int n,sum=0,r;     
-       Console.Write("Enter the Number= ");    
-       n= int.Parse(Console.ReadLine());     
-       while(n>0)      
-       {      
-        r=n%10;      
-        sum=sum*10+r;      
-        n=n/10;      
-       }      
-       n=sum;      
-       while(n>0)      
-       {      
-        r=n%10;      
-        switch(r)      
-        {      
-         case 1:      
-         Console.Write("one ");  
-         break;      
-         case 2:      
-         Console.Write("two ");      
-         break;      
-         case 3:      
-         Console.Write("three ");    
-         break;      
-         case 4:      
-         Console.Write("four ");    
-         break;      
-         case 5:      
-         Console.Write("five ");    
-         break;      
-         case 6:      
-         Console.Write("six ");     
-         break;      
-         case 7:    
-         Console.Write("seven ");    
-         break;    
-         case 8:      
-         Console.Write("eight ");      
-         break;      
-         case 9:      
-         Console.Write("nine ");    
-         break;      
-         case 0:      
-         Console.Write("zero ");    
-         break;      
-         default:      
-         Console.Write("tttt ");      
-         break;      
-        }   
-        n=n/10;      
-       }
-   }  
-  }  
+using System;<br>  
+  public class ConversionExample<br>  
+   {  <br>
+     public static void Main(string[] args)<br>  
+      {  <br>
+       int n,sum=0,r;<br>     
+       Console.Write("Enter the Number= ");<br>    
+       n= int.Parse(Console.ReadLine());<br>     
+       while(n>0)<br>      
+       {<br>      
+        r=n%10;<br>      
+        sum=sum*10+r;<br>      
+        n=n/10;<br>      
+       }<br>      
+       n=sum;<br>      
+       while(n>0)<br>      
+       {<br>      
+        r=n%10;<br>      
+        switch(r)<br>      
+        {<br>      
+         case 1:<br>      
+         Console.Write("one ");<br>  
+         break;<br>      
+         case 2:<br>      
+         Console.Write("two ");<br>      
+         break;<br>      
+         case 3:<br>      
+         Console.Write("three ");<br>    
+         break;<br>      
+         case 4:<br>      
+         Console.Write("four ");<br>    
+         break;<br>      
+         case 5:<br>      
+         Console.Write("five ");<br>    
+         break;<br>      
+         case 6:<br>      
+         Console.Write("six ");<br>     
+         break;<br>      
+         case 7:<br>    
+         Console.Write("seven ");<br>    
+         break;<br>    
+         case 8:<br>     
+         Console.Write("eight ");<br>      
+         break;<br>      
+         case 9:<br>      
+         Console.Write("nine ");<br>    
+         break;<br>      
+         case 0:<br>      
+         Console.Write("zero ");<br>    
+         break;<br>      
+         default:<br>      
+         Console.Write("tttt ");<br>      
+         break;<br>      
+        }<br>   
+        n=n/10;<br>      
+       }<br>
+   } <br> 
+  }<br>  
 
 **OUTPUT**
 
