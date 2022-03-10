@@ -74,7 +74,7 @@ namespace ex4<br>
    }<br>
 }<br>
 
-**AMICABLE NUMBERS**<br>
+**OUTPUT**<br>
 ![image](https://user-images.githubusercontent.com/97940850/154425457-4d3bc1d3-a81d-4081-9b7d-4f8957e5ea39.png)
 
 
@@ -864,7 +864,7 @@ public class Age<br>
 ![image](https://user-images.githubusercontent.com/97940851/154632142-377b1db9-f89a-44b7-9ed5-f3b96272f7e9.png)
 
 
-**Fibonocie number**
+**16.Fibonocie number**
 
 using System;<br>  
   public class ex16<br>  
@@ -889,7 +889,7 @@ using System;<br>
    
    ![image](https://user-images.githubusercontent.com/97940851/155657439-d6233097-7af8-40c8-80e2-e6626e63b4bb.png)
    
-   **Prime number**
+   **17.Prime number**
    
    using System;<br>
 public class ex17<br>
@@ -922,7 +922,7 @@ public class ex17<br>
    ![image](https://user-images.githubusercontent.com/97940851/155659122-5a6cc4e0-1df1-411f-9cb5-5030b10b2636.png)
    
    
-  **Palindrome**
+  **18.Palindrome**
   
   using System;<br>
 public class ex18<br>
@@ -955,7 +955,7 @@ public class ex18<br>
    ![image](https://user-images.githubusercontent.com/97940851/155660513-4705ad29-438e-4403-a849-928cc0b71b2b.png)
    
    
-   **Factorial**
+   **19.Factorial**
    
    using System;<br>
 public class ex19<br>
@@ -980,7 +980,7 @@ public class ex19<br>
    ![image](https://user-images.githubusercontent.com/97940851/155661737-0581f2c7-24b5-4fed-baa9-c56a50cb45dc.png)
    
    
-   **Sum of Digits**
+   **20.Sum of Digits**
    
    using System;<br>
 public class ex20<br>
@@ -1006,7 +1006,7 @@ public class ex20<br>
 
 ![image](https://user-images.githubusercontent.com/97940851/155662476-12b49ca4-bd40-4ffa-b5ea-01d2e33d6bae.png)
 
-**Reversed number**
+**21.Reversed number**
 
 using System;<br>
 public class ex21<br>
@@ -1032,7 +1032,7 @@ public class ex21<br>
 ![image](https://user-images.githubusercontent.com/97940851/155663443-8244bc9d-2343-4143-b440-53a201d095dd.png)
 
 
-**Swap two numbers without using third variable**
+**22.Swap two numbers without using third variable**
 
 using System;<br>
 public class ex22<br>
@@ -1055,7 +1055,7 @@ public class ex22<br>
 
 
 
-**Decimal to Binary**
+**23.Decimal to Binary**
 
 using System;<br>
 public class ConversionExample<br>
@@ -1084,7 +1084,7 @@ public class ConversionExample<br>
 ![image](https://user-images.githubusercontent.com/97940851/156501240-5134a011-5171-4f27-bbdd-81f87aeefed1.png)
 
 
-**Convert number in character**
+**24.Convert number in character**
 
 using System;<br>  
   public class ConversionExample<br>  
@@ -1150,7 +1150,7 @@ using System;<br>
 ![image](https://user-images.githubusercontent.com/97940851/156502100-b190c5d7-c6b5-43b9-9140-706f6d6eedf6.png)
 
 
-**Alphabet Triangle**
+**25.Alphabet Triangle**
 
 using System;<br>
 public class PrintExample<br>
@@ -1179,7 +1179,7 @@ public class PrintExample<br>
 ![image](https://user-images.githubusercontent.com/97940851/156504836-17142930-2242-4d9b-8740-83af5d2025e2.png)
 
 
-**Number Triangle**
+**26.Number Triangle**
 
 using System;<br>  
   public class PrintExample<br>    
@@ -1213,7 +1213,7 @@ using System;<br>
   ![image](https://user-images.githubusercontent.com/97940851/156506392-4c395ae0-4f21-494c-987c-d51ae6876b52.png)
   
   
-  **Fibonacci Triangle**
+  **27.Fibonacci Triangle**
   sing System;<br>
 public class PrintExample<br>
 {<br>
