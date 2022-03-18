@@ -1343,51 +1343,51 @@ namespace lab16
 
 **18. C# Program to Perform Reversal, Padding and Trimming Operations on string.**
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;<br>
+using System.Collections.Generic;<br>
+using System.ComponentModel;<br>
+using System.Data;<br>
+using System.Drawing;<br>
+using System.Linq;<br>
+using System.Text;<br>
+using System.Threading.Tasks;<br>
+using System.Windows.Forms;<br>
 
-namespace lab18
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+namespace lab18<br>
+{<br>
+    public partial class Form1 : Form<br>
+    {<br>
+        public Form1()<br>
+        {<br>
+            InitializeComponent();<br>
+        }<br>
 
-        private void btnrev_Click(object sender, EventArgs e)
-        {
-            string inputString, revstr = "";
-            int Length;
-            inputString = txtInput.Text;
-            Length = inputString.Length - 1;
-            while (Length >= 0)
-            {
-                revstr = revstr + inputString[Length];
-                Length--;
-            }
-            MessageBox.Show("Reverse String Is : " + revstr, "Result");
-        }
+        private void btnrev_Click(object sender, EventArgs e)<br>
+        {<br>
+            string inputString, revstr = "";<br>
+            int Length;<br>
+            inputString = txtInput.Text;<br>
+            Length = inputString.Length - 1;<br>
+            while (Length >= 0)<br>
+            {<br>
+                revstr = revstr + inputString[Length];<br>
+                Length--;<br>
+            }<br>
+            MessageBox.Show("Reverse String Is : " + revstr, "Result");<br>
+        }<br>
 
-        private void btntrim_Click(object sender, EventArgs e)
-        {
-            string inputString;
-            inputString = txtInput.Text;
-            MessageBox.Show("The String After Trimming : " + inputString.Trim(), "Result");
-        }
+        private void btntrim_Click(object sender, EventArgs e)<br>
+        {<br>
+            string inputString;<br>
+            inputString = txtInput.Text;<br>
+            MessageBox.Show("The String After Trimming : " + inputString.Trim(), "Result");<br>
+        }<br>
 
-        private void btnpad_Click(object sender, EventArgs e)
-        {
-            string inputString;
-            inputString = txtInput.Text;
-            inputString = inputString.PadLeft(10, '*');
+        private void btnpad_Click(object sender, EventArgs e)<br>
+        {<br>
+            string inputString;<br>
+            inputString = txtInput.Text;<br>
+            inputString = inputString.PadLeft(10, '*');<br>
             inputString = inputString.PadRight(15, '*');
             MessageBox.Show("String After Padding : " + inputString, "Result");
         }
