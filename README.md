@@ -1249,6 +1249,268 @@ public class PrintExample<br>
 
 
 
+**16. C# Program to Convert Digits to Words**
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace lab16
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        
+            {
+                lbl_words.Text = NumtoWord(long.Parse(txt_num.Text));
+            }
+            public string NumtoWord(long number)
+            {
+                string word = "";
+                if (number == 0)
+                {
+                    return "Zero";
+                }
+                if (number < 0)
+                {
+                    return "Minus" + Math.Abs(number);
+                }
+                if (number / 10000000 > 0)
+                {
+                    word += NumtoWord(number / 10000000) + "Corer";
+                    number %= 10000000;
+                }
+
+            if (number / 100000 > 0)
+                {
+                    word += NumtoWord(number / 100000) + "Lacs";
+                    number %= 100000;
+                }
+                if (number / 1000 > 0)
+                {
+                    word += NumtoWord(number / 1000) + "Thousand";
+                    number %= 1000;
+                }
+                if (number / 100 > 0)
+                {
+                    word += NumtoWord(number / 100) + "Hundred";
+                    number %= 100;
+                }
+                if (number > 0)
+                {
+                    string[] units = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six",
+"Seven", "Eight", "Nine","Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
+"Seventeen", "Eighteen", "Nineteen" };
+                    string[] Tens = new string[] { "Zero", "Ten", "Twenty", "Thirty", "Fourty", "Fifty",
+"Sixty", "Seventy", "Eighty", "Ninety" };
+                    if (number < 20)
+                    {
+                        word += units[number];
+                    }
+                    else
+                    {
+                        word += Tens[number / 10];
+                        if (number % 10 > 0)
+                        {
+                            word += units[number % 10];
+                        }
+                    }
+                }
+                return word;
+            }
+
+        private void lbl_words_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+    }
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/158942155-ca652b7e-e539-40a3-83ef-d457182b8c44.png)
+
+**18. C# Program to Perform Reversal, Padding and Trimming Operations on string.**
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace lab18
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnrev_Click(object sender, EventArgs e)
+        {
+            string inputString, revstr = "";
+            int Length;
+            inputString = txtInput.Text;
+            Length = inputString.Length - 1;
+            while (Length >= 0)
+            {
+                revstr = revstr + inputString[Length];
+                Length--;
+            }
+            MessageBox.Show("Reverse String Is : " + revstr, "Result");
+        }
+
+        private void btntrim_Click(object sender, EventArgs e)
+        {
+            string inputString;
+            inputString = txtInput.Text;
+            MessageBox.Show("The String After Trimming : " + inputString.Trim(), "Result");
+        }
+
+        private void btnpad_Click(object sender, EventArgs e)
+        {
+            string inputString;
+            inputString = txtInput.Text;
+            inputString = inputString.PadLeft(10, '*');
+            inputString = inputString.PadRight(15, '*');
+            MessageBox.Show("String After Padding : " + inputString, "Result");
+        }
+    }
+}
+    
+    
+    
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/158943063-04a43ac7-f0ef-4aca-b3f7-5ebda8595ea5.png)
+
+![image](https://user-images.githubusercontent.com/97940851/158943198-9a1616b3-0704-4ec3-b785-c20f60c42f7c.png)
+
+![image](https://user-images.githubusercontent.com/97940851/158943264-45d3e50a-f904-45e9-8f0e-2f8b5e9e0c96.png)
+
+
+**19. C# Program to Create a Progress Bar Control.**
+
+using System;
+using System.ComponentModel; 
+using System.Threading; 
+using System.Windows.Forms; 
+namespace WindowsFormsApplication1 
+{ 
+ public partial class Form1: Form 
+ { 
+ public Form1() 
+ { 
+ InitializeComponent(); 
+ }
+}
+private void Form1_Load(object sender, System.EventArgs e) 
+ { 
+backgroundWorker1.WorkerReportsProgress = true;
+ backgroundWorker1.RunWorkerAsync(); 
+ }
+private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) 
+ { 
+ for (int i = 1; i <= 100; i++) 
+ { 
+ Thread.Sleep(50); 
+ backgroundWorker1.ReportProgress(i); 
+ } 
+ } 
+ private void backgroundWorker1_ProgressChanged(object sender, 
+ ProgressChangedEventArgs e) 
+ { 
+ progressBar1.Value = e.ProgressPercentage; 
+ this.Text = "Progress: " + e.ProgressPercentage.ToString() + "%";
+ } 
+ } 
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/158939841-71ce2448-dbbc-4964-b0a0-952f158d8834.png)
+
+![image](https://user-images.githubusercontent.com/97940851/158939912-1825c96d-9e04-4f7c-8926-e0b11b9e0b44.png)
+
+
+**20. Develop a winform application to create flat clock**
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace lab20
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            timer1.Start();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 1000;//1s
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+        }
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            circularProgressBar1.Invoke((MethodInvoker)delegate
+            {
+                circularProgressBar1.Text = DateTime.Now.ToString("hh:mm:ss");
+                circularProgressBar1.SubscriptText = DateTime.Now.ToString("tt");//AM or PM
+            });
+        }
+    }
+}
+
+**OUTPUT**
+
+![image](https://user-images.githubusercontent.com/97940851/158940615-f1c694fa-c7e4-4f0c-84fd-1095c4e802dd.png)
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
    
    
 
