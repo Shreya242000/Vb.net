@@ -400,112 +400,110 @@ namespace ex8
 
 **9.C# program that beanchmark 2D,jagged array allocation**
 
-using System;using System;
-using System.Diagnostics;
+using System;using System;<br>
+using System.Diagnostics;<br>
 
-namespace ex9
-{
-    class BenchmarkAllocation
+namespace ex9<br>
+{<br>
+    class BenchmarkAllocation<br>
 
-    {
-        const int _max = 10000;
-        static void Main(string[] args)
-        {
-         var Arr2D = new int[100, 100];
-         var ArrJagged = new int[100][];
+    {<br>
+        const int _max = 10000;<br>
+        static void Main(string[] args)<br>
+        {<br>
+         var Arr2D = new int[100, 100];<br>
+         var ArrJagged = new int[100][];<br>
+<br>
+          for (int i = 0; i < 100; i++)<br>
+            {<br>
+                ArrJagged[i] = new int[100];<br>
+            }<br>
+            var Stopwatch2D = Stopwatch.StartNew();<br>
+            for (int i = 0; i < _max; i++)<br>
+            {<br>
+                for (int j = 0; j < 100; j++)<br>
+                {<br>
+                    for (int k = 0; k < 100; k++)<br>
+                    {<br>
+                        Arr2D[j, k] = k;<br>
+                    }<br>
+                }<br>
+            }<br>
+            Stopwatch2D.Stop();<br>
 
-          for (int i = 0; i < 100; i++)
-            {
-                ArrJagged[i] = new int[100];
-            }
-            var Stopwatch2D = Stopwatch.StartNew();
-            for (int i = 0; i < _max; i++)
-            {
-                for (int j = 0; j < 100; j++)
-                {
-                    for (int k = 0; k < 100; k++)
-                    {
-                        Arr2D[j, k] = k;
-                    }
-                }
-            }
-            Stopwatch2D.Stop();
+            var StopwatchJagged = Stopwatch.StartNew();<br>
+            for (int i = 0; i < _max; i++)<br>
+            {<br>
+                for (int j = 0; j < 100; j++)<br>
+                {<br>
+                    for (int k = 0; k < 100; k++)<br>
+                    {<br>
+                        ArrJagged[j][k] = k;<br><br>
+                    }<br>
+                }<br>
+            }<br>
 
-            var StopwatchJagged = Stopwatch.StartNew();
-            for (int i = 0; i < _max; i++)
-            {
-                for (int j = 0; j < 100; j++)
-                {
-                    for (int k = 0; k < 100; k++)
-                    {
-                        ArrJagged[j][k] = k;
-                    }
-                }
-            }
+            StopwatchJagged.Stop();<br>
+            Console.Write("\n Time taken for allocation in case of 2D array:");<br>
+            Console.WriteLine(Stopwatch2D.Elapsed.TotalMilliseconds + "miliseconds");<br>
+            Console.Write("\n Time taken for allocation in cse Jagged array:");<br>
+            Console.WriteLine(StopwatchJagged.Elapsed.TotalMilliseconds+ "miliseconds");<br>
+         }<br>
+    }<br>
+}<br>
 
-            StopwatchJagged.Stop();
-            Console.Write("\n Time taken for allocation in case of 2D array:");
-            Console.WriteLine(Stopwatch2D.Elapsed.TotalMilliseconds + "miliseconds");
+using System.Diagnostics;<br>
+<br>
+namespace ex9<br>
+{<br>
+    class BenchmarkAllocation<br>
+
+    {<br>
+        const int _max = 10000<br>;<br>
+        static void Main(string[] args)<br>
+        {<br>
+            var Arr2D = new int[100, 100];<br>
+            var ArrJagged = new int[100][];<br>
+
+            for (int i = 0; i < 100; i++)<br>
+            {<br>
+                ArrJagged[i] = new int[100];<br>
+            }<br>
+            var Stopwatch2D = Stopwatch.StartNew();<br>
+            for (int i = 0; i < _max; i++)<br>
+            {<br>
+                for (int j = 0; j < 100; j++)<br>
+                {<br>
+                    for (int k = 0; k < 100; k++)<br>
+                    {<br>
+                        Arr2D[j, k] = k;<br>
+                    }<br>
+                }<br>
+            }<br>
+            Stopwatch2D.Stop();<br>
+
+            var StopwatchJagged = Stopwatch.StartNew();<br>
+            for (int i = 0; i < _max; i++)<br>
+            {<br>
+                for (int j = 0; j < 100; j++)<br>
+                {<br>
+                    for (int k = 0; k < 100; k++)<br>
+                    {<br>
+                        ArrJagged[j][k] = k;<br>
+                    }<br>
+                }<br>
+            }<br>
+
+            StopwatchJagged.Stop();<br>
+            Console.Write("\n Time taken for allocation in case of 2D array:");<br>
+            Console.WriteLine(Stopwatch2D.Elapsed.TotalMilliseconds + "miliseconds");<br>
             Console.Write("\n Time taken for allocation in cse Jagged array:");
-            Console.WriteLine(StopwatchJagged.Elapsed.TotalMilliseconds+ "miliseconds");
+            Console.WriteLine(StopwatchJagged.Elapsed.TotalMilliseconds+ "miliseconds");<br>
 
 
-        }
-    }
-}
-
-using System.Diagnostics;
-
-namespace ex9
-{
-    class BenchmarkAllocation
-
-    {
-        const int _max = 10000;
-        static void Main(string[] args)
-        {
-            var Arr2D = new int[100, 100];
-            var ArrJagged = new int[100][];
-
-            for (int i = 0; i < 100; i++)
-            {
-                ArrJagged[i] = new int[100];
-            }
-            var Stopwatch2D = Stopwatch.StartNew();
-            for (int i = 0; i < _max; i++)
-            {
-                for (int j = 0; j < 100; j++)
-                {
-                    for (int k = 0; k < 100; k++)
-                    {
-                        Arr2D[j, k] = k;
-                    }
-                }
-            }
-            Stopwatch2D.Stop();
-
-            var StopwatchJagged = Stopwatch.StartNew();
-            for (int i = 0; i < _max; i++)
-            {
-                for (int j = 0; j < 100; j++)
-                {
-                    for (int k = 0; k < 100; k++)
-                    {
-                        ArrJagged[j][k] = k;
-                    }
-                }
-            }
-
-            StopwatchJagged.Stop();
-            Console.Write("\n Time taken for allocation in case of 2D array:");
-            Console.WriteLine(Stopwatch2D.Elapsed.TotalMilliseconds + "miliseconds");
-            Console.Write("\n Time taken for allocation in cse Jagged array:");
-            Console.WriteLine(StopwatchJagged.Elapsed.TotalMilliseconds+ "miliseconds");
-
-
-        }
-    }
-}
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -514,59 +512,59 @@ namespace ex9
 
 **10.C# program to find the sum of the valuve on diagnal of the matrix**
 
-using System;
+using System;<br>
 
-namespace ex10
-{
-    class SumOfDiagnonals
-    {
-        static void Main(string[] args)
-        {
-            int MaxRow, MaxCol, Sum = 0;
-            int[,] Matrix;
+namespace ex10<br>
+{<br><br>
+    class SumOfDiagnonals<br>
+    {<br>
+        static void Main(string[] args)<br>
+        {<br>
+            int MaxRow, MaxCol, Sum = 0;<br>
+            int[,] Matrix;<br>
 
-            Console.WriteLine("\n----SUM OF DIAGNOL OF MATRIX-----\n");
-            Console.WriteLine("\n Enter the number of rows:");
-            MaxRow = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("\n Enter the number of columns:");
-            MaxCol = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\n----SUM OF DIAGNOL OF MATRIX-----\n");<br>
+            Console.WriteLine("\n Enter the number of rows:");<br>
+            MaxRow = Convert.ToInt32(Console.ReadLine());<br>
+            Console.WriteLine("\n Enter the number of columns:");<br>
+            MaxCol = Convert.ToInt32(Console.ReadLine());<br>
 
-            if (MaxRow != MaxCol)
+            if (MaxRow != MaxCol)<br>
+            {<br>
+                Console.WriteLine("\n The Dimension entered are not of squre Matrix:");<br>
+                Console.WriteLine("\nExiting the program..");<br>
+                return;<br>
+            }<br>
+            Matrix = new int[MaxRow, MaxCol];<br>
+
+            for (int i=0; i<MaxRow; i++)<br>
+            {<br>
+                for(int j=0;j<MaxCol;j++)<br>
+                {<br>
+                    Console.Write("\nEnter the {0},{1}th element of the matrix:", (i + 1), (j + 1));<br>
+                    Matrix[i, j] = Convert.ToInt32(Console.ReadLine());<br>
+                }<br>
+            }<br>
+            Console.WriteLine("\n The enterd Matrix is:");<br>
+            for (int i = 0; i < MaxRow; i++)<br>
             {
-                Console.WriteLine("\n The Dimension entered are not of squre Matrix:");
-                Console.WriteLine("\nExiting the program..");
-                return;
-            }
-            Matrix = new int[MaxRow, MaxCol];
-
-            for (int i=0; i<MaxRow; i++)
-            {
-                for(int j=0;j<MaxCol;j++)
+                for (int j = 0; j < MaxCol; j++)<br>
                 {
-                    Console.Write("\nEnter the {0},{1}th element of the matrix:", (i + 1), (j + 1));
-                    Matrix[i, j] = Convert.ToInt32(Console.ReadLine());
-                }
-            }
-            Console.WriteLine("\n The enterd Matrix is:");
-            for (int i = 0; i < MaxRow; i++)
-            {
-                for (int j = 0; j < MaxCol; j++)
-                {
-                    Console.Write(" " + Matrix[i, j]);
-
-                    if (i == j)
-                    {
-                        Sum += Matrix[i, j];
-                    }
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("\n The Sum Of Diagonal is" + Sum);
-            }
+                    Console.Write(" " + Matrix[i, j]);<br>
+<br>
+                    if (i == j)<br>
+                    {<br>
+                        Sum += Matrix[i, j];<br>
+                    }<br>
+                }<br>
+                Con<br>sole.WriteLine();<br>
+            }<br>
+            Console.WriteLine("\n The Sum Of Diagonal is" + Sum);<br>
+            }<br>
 
 
-        }
-    }
+        }<br>
+    }<br>
    
 **OUTPUT**
 
@@ -1251,91 +1249,91 @@ public class PrintExample<br>
 
 **16. C# Program to Convert Digits to Words**
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;<br>
+using System.Collections.Generic;<br>
+using System.ComponentModel;<br>
+using System.Data;<br>
+using System.Drawing;<br>
+using System.Linq;<br>
+using System.Text;<br>
+using System.Threading.Tasks;<br>
+using System.Windows.Forms;<br>
 
-namespace lab16
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+namespace lab16<br>
+{<br>
+    public partial class Form1 : Form<br>
+    {<br>
+        public Form1()<br>
+        {<br>
+            InitializeComponent();<br>
+        <br>}<br>
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)<br>
         
-            {
-                lbl_words.Text = NumtoWord(long.Parse(txt_num.Text));
-            }
-            public string NumtoWord(long number)
-            {
-                string word = "";
-                if (number == 0)
-                {
-                    return "Zero";
-                }
-                if (number < 0)
-                {
-                    return "Minus" + Math.Abs(number);
-                }
-                if (number / 10000000 > 0)
-                {
-                    word += NumtoWord(number / 10000000) + "Corer";
-                    number %= 10000000;
-                }
+            {<br>
+                lbl_words.Text = NumtoWord(long.Parse(txt_num.Text));<br>
+            }<br>
+            public string NumtoWord(long number)<br>
+            {<br>
+                string word = "";<br>
+                if (number == 0)<br>
+                {<br>
+                    return "Zero";<br>
+                }<br>
+                if (number < 0)<br>
+                {<br>
+                    return "Minus" + Math.Abs(number);<br>
+                }<br>
+                if (number / 10000000 > 0)<br>
+                {<br>
+                    word += NumtoWord(number / 10000000) + "Corer";<br>
+                    number %= 10000000;<br>
+                }<br>
 
-            if (number / 100000 > 0)
-                {
-                    word += NumtoWord(number / 100000) + "Lacs";
-                    number %= 100000;
-                }
-                if (number / 1000 > 0)
-                {
-                    word += NumtoWord(number / 1000) + "Thousand";
-                    number %= 1000;
-                }
-                if (number / 100 > 0)
-                {
-                    word += NumtoWord(number / 100) + "Hundred";
-                    number %= 100;
-                }
-                if (number > 0)
-                {
-                    string[] units = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six",
-"Seven", "Eight", "Nine","Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
-"Seventeen", "Eighteen", "Nineteen" };
-                    string[] Tens = new string[] { "Zero", "Ten", "Twenty", "Thirty", "Fourty", "Fifty",
-"Sixty", "Seventy", "Eighty", "Ninety" };
-                    if (number < 20)
-                    {
-                        word += units[number];
-                    }
-                    else
-                    {
-                        word += Tens[number / 10];
-                        if (number % 10 > 0)
-                        {
-                            word += units[number % 10];
-                        }
-                    }
-                }
-                return word;
-            }
+            if (number / 100000 > 0)<br>
+                {<br>
+                    word += NumtoWord(number / 100000) + "Lacs";<br>
+                    number %= 100000;<br>
+                }<br>
+                if (number / 1000 > 0)<br>
+                {<br>
+                    word += NumtoWord(number / 1000) + "Thousand";<br>
+                    number %= 1000;<br>
+                }<br>
+                if (number / 100 > 0)<br>
+                {<br>
+                    word += NumtoWord(number / 100) + "Hundred";<br>
+                    number %= 100;<br>
+                }<br><br>
+                if (number > 0)<br>
+                {<br>
+                    string[] units = new string[] { "Zero", "One", "Two", "Three", "Four", "Five", "Six",<br>
+"Seven", "Eight", "Nine","Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",<br>
+"Seventeen", "Eighteen", "Nineteen" };<br>
+                    string[] Tens = new string[] { "Zero", "Ten", "Twenty", "Thirty", "Fourty", "Fifty",<br>
+"Sixty", "Seventy", "Eighty", "Ninety" };<br>
+                    if (number < 20)<br>
+                    {<br>
+                        word += units[number];<br>
+                    }<br>
+                    else<br>
+                    {<br>
+                        word += Tens[number / 10];<br>
+                        if (number % 10 > 0)<br>
+                        {<br>
+                            word += units[number % 10];<br>
+                        }<br>
+                    }<br>
+                }<br>
+                return word;<br>
+            }<br>
 
-        private void lbl_words_Click(object sender, EventArgs e)
-        {
+        private void lbl_words_Click(object sender, EventArgs e)<br>
+        {<br>
 
-        }
-    }
-    }
+        }<br>
+    }<br>
+    }<br>
 
 **OUTPUT**
 
@@ -1407,40 +1405,40 @@ namespace lab18<br>
 
 **19. C# Program to Create a Progress Bar Control.**
 
-using System;
-using System.ComponentModel; 
-using System.Threading; 
-using System.Windows.Forms; 
-namespace WindowsFormsApplication1 
-{ 
- public partial class Form1: Form 
- { 
- public Form1() 
- { 
- InitializeComponent(); 
- }
-}
-private void Form1_Load(object sender, System.EventArgs e) 
- { 
-backgroundWorker1.WorkerReportsProgress = true;
- backgroundWorker1.RunWorkerAsync(); 
- }
-private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) 
- { 
- for (int i = 1; i <= 100; i++) 
- { 
- Thread.Sleep(50); 
- backgroundWorker1.ReportProgress(i); 
- } 
- } 
- private void backgroundWorker1_ProgressChanged(object sender, 
- ProgressChangedEventArgs e) 
- { 
- progressBar1.Value = e.ProgressPercentage; 
- this.Text = "Progress: " + e.ProgressPercentage.ToString() + "%";
- } 
- } 
-}
+using System;<br>
+using System.ComponentModel; <br>
+using System.Threading; <br>
+using System.Windows.Forms<br> <br>
+namespace WindowsFormsApplication1 <br>
+{ <br>
+ public partial class Form1: Form <br>
+ { <br>
+ public Form1() <br>
+ { <br>
+ InitializeComponent(); <br>
+ }<br>
+}<br>
+private void Form1_Load(object sender, System.EventArgs e) <br>
+ { <br>
+backgroundWorker1.WorkerReportsProgress = true;<br>
+ backgroundWorker1.RunWorkerAsync(); <br>
+ }<br>
+private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) <br>
+ { <br>
+ for (int i = 1; i <= 100; i++) <br>
+ { <br>
+ Thread.Sleep(50); <br>
+ backgroundWorker1.ReportProgress(i); <br>
+ } <br>
+ }<br> 
+ private void backgroundWorker1_ProgressChanged(object sender, <br>
+ ProgressChangedEventArgs e)<br> 
+ { <br><br>
+ progressBar1.Value = e.ProgressPercentage; <br>
+ this.Text = "Progress: " + e.ProgressPercentage.ToString() + "%";<br>
+ } <br>
+ } <br>
+}<br><br>
 
 **OUTPUT**
 
@@ -1451,43 +1449,43 @@ private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
 
 **20. Develop a winform application to create flat clock**
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;<br>
+using System.Collections.Generic;<br>
+using System.ComponentModel;<br>
+using System.Data;<br>
+using System.Drawing;<br>
+using System.Linq;<br>
+using System.Text;<br>
+using System.Threading.Tasks;<br>
+using System.Windows.Forms;<br>
 
-namespace lab20
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-            timer1.Start();
-        }
+namespace lab20<br>
+{<br>
+    public partial class Form1 : Form<br>
+    {<br>
+        public Form1()<br>
+        {<br>
+            InitializeComponent();<br>
+            timer1.Start();<br>
+        }<br>
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 1000;//1s
-            timer.Elapsed += Timer_Elapsed;
-            timer.Start();
-        }
-        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            circularProgressBar1.Invoke((MethodInvoker)delegate
-            {
-                circularProgressBar1.Text = DateTime.Now.ToString("hh:mm:ss");
-                circularProgressBar1.SubscriptText = DateTime.Now.ToString("tt");//AM or PM
-            });
-        }
-    }
-}
+        private void Form1_Load(object sender, EventArgs e)<br>
+        {<br>
+            System.Timers.Timer timer = new System.Timers.Timer();<br>
+            timer.Interval = 1000;//1s<br>
+            timer.Elapsed += Timer_Elapsed;<br>
+            timer.Start();<br>
+        }<br><br>
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)<br>
+        {<br>
+            circularProgressBar1.Invoke((MethodInvoker)delegate<br>
+            {<br>
+                circularProgressBar1.Text = DateTime.Now.ToString("hh:mm:ss");<br>
+                circularProgressBar1.SubscriptText = DateTime.Now.ToString("tt");//AM or PM<br>
+            });<br>
+        }<br>
+    }<br>
+}<br>
 
 **OUTPUT**
 
@@ -1496,124 +1494,124 @@ namespace lab20
 
 **21. C# Program to perform a number guessing game**
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;<br>
+using System.Collections.Generic;<br>
+using System.ComponentModel;<br>
+using System.Data;<br>
+using System.Drawing;<br>
+using System.Linq;<br><br>
+using System.Text;<br>
+using System.Threading.Tasks;<br>
+using System.Windows.Forms;<br>
+<br>
+namespace lab21<br>
+{<br>
+    public partial class Form1 : Form<br>
+    {<br>
+        // Intialising component <br>
+        static Random r = new Random();<br>
+        int value;<br>
+        int guessnum;<br>
+        int win = 10;<br>
+        int guess = 1;<br>
+        Button button1;<br>
+        TextBox textBox1;<br>
+        RichTextBox richTextBox1;<br>
+        RichTextBox richTextBox2;<br>
+        Label label4;<br>
+        public Form1()<br>
+        {<br>
+            InitializeComponent();<br>
+            {<br>
+                value = r.Next(10);<br>
+                this.Controls.Clear();<br>
+                this.BackColor = Color.SkyBlue;<br>
+                this.AutoSize = true;<br>
+                this.Padding = new Padding(16);<br>
+                Label label = new Label();<br>
+                label.Text = "Pick a number between 1 and 100";<br>
+                label.Bounds = new Rectangle(10, 20, 340, 40);<br>
+                label.Font = new Font("Arial", 16);<br>
+                textBox1 = new TextBox();<br>
+                textBox1.Bounds = new Rectangle(20, 50, 120, 80);<br>
+                textBox1.Font = new Font("Arial", 24);<br>
+<br>
+                button1 = new Button();<br>
+                button1.Text = " Check Your Guess ";<br>
+                button1.Bounds = new Rectangle(160, 50, 120, 40);<br>
 
-namespace lab21
-{
-    public partial class Form1 : Form
-    {
-        // Intialising component 
-        static Random r = new Random();
-        int value;
-        int guessnum;
-        int win = 10;
-        int guess = 1;
-        Button button1;
-        TextBox textBox1;
-        RichTextBox richTextBox1;
-        RichTextBox richTextBox2;
-        Label label4;
-        public Form1()
-        {
-            InitializeComponent();
-            {
-                value = r.Next(10);
-                this.Controls.Clear();
-                this.BackColor = Color.SkyBlue;
-                this.AutoSize = true;
-                this.Padding = new Padding(16);
-                Label label = new Label();
-                label.Text = "Pick a number between 1 and 100";
-                label.Bounds = new Rectangle(10, 20, 340, 40);
-                label.Font = new Font("Arial", 16);
-                textBox1 = new TextBox();
-                textBox1.Bounds = new Rectangle(20, 50, 120, 80);
-                textBox1.Font = new Font("Arial", 24);
+                button1.BackColor = Color.LightGray;<br>
+                button1.Click += new EventHandler(button1_Click);<br>
+                Label label2 = new Label();<br>
+                label2.Text = "Low Guess";<br>
+                label2.Bounds = new Rectangle(20, 150, 160, 40);<br>
+                label2.Font = new Font("Arial", 18);<br>
+                richTextBox1 = new RichTextBox();<br><br>
+                richTextBox1.Bounds = new Rectangle(20, 190, 160, 300);<br>
+                richTextBox1.Font = new Font("Arial", 16);<br>
 
-                button1 = new Button();
-                button1.Text = " Check Your Guess ";
-                button1.Bounds = new Rectangle(160, 50, 120, 40);
+                Label label3 = new Label();<br>
+                label3.Text = "High Guess";<br>
+                label3.Bounds = new Rectangle(180, 150, 160, 40);<br>
+                label3.Font = new Font("Arial", 18);<br>
+                richTextBox2 = new RichTextBox();<br>
+                richTextBox2.Bounds = new Rectangle(180, 190, 160, 300);<br>
+                richTextBox2.Font = new Font("Arial", 16);<br>
+                label4 = new Label();<br>
+                label4.Bounds = new Rectangle(20, 100, 340, 40);<br>
+                label4.Font = new Font("Arial", 16);<br>
+                this.Controls.Add(label);<br>
+                this.Controls.Add(textBox1);<br><br>
+                this.Controls.Add(button1);<br>
+                this.Controls.Add(label4);<br>
+                this.Controls.Add(label2);<br>
+                this.Controls.Add(label3);<br>
+                this.Controls.Add(richTextBox1);<br>
+                this.Controls.Add(richTextBox2);<br>
+            }<br>
+        }<br>
+        private void button1_Click(object sender, EventArgs e)<br>
+        {<br>
+            // Coding of game <br>
+            if (textBox1.Text == "")<br>
+            {<br>
+                return;<br>
+            }<br>
+            guessnum = Convert.ToInt32(textBox1.Text);<br>
+            textBox1.Text = String.Empty;<br>
+            if (win >= 0)<br>
+            {<br>
 
-                button1.BackColor = Color.LightGray;
-                button1.Click += new EventHandler(button1_Click);
-                Label label2 = new Label();
-                label2.Text = "Low Guess";
-                label2.Bounds = new Rectangle(20, 150, 160, 40);
-                label2.Font = new Font("Arial", 18);
-                richTextBox1 = new RichTextBox();
-                richTextBox1.Bounds = new Rectangle(20, 190, 160, 300);
-                richTextBox1.Font = new Font("Arial", 16);
+                if (guessnum == value)<br>
+                {<br>
+                    MessageBox.Show("You have guessed the number! \n The number was " + value);<br>
+                    InitializeComponent();<br>
+                }<br>
+                else if (guessnum < value)<br>
+                {<br>
+                    richTextBox1.Text += guessnum + "\n";<br>
+                    label4.Text = "wrong Guess and number of guesses left are " + (10 - guess);<br>
+                }<br>
+                else if (guessnum > value)<br>
+                {<br>
+                    richTextBox2.Text += guessnum + "\n";<br>
+                    label4.Text = "wrong Guess and number of guesses left are " + (10 - guess);<br>
+                }<br>
+                guess++;<br>
+                win--;<br>
+            }<br>
+            if (guess == 11)<br>
+            {<br><br>
+                label4.Text = "You loose,Correct Guess is " + value;<br>
+            }<br>
+        }<br>
 
-                Label label3 = new Label();
-                label3.Text = "High Guess";
-                label3.Bounds = new Rectangle(180, 150, 160, 40);
-                label3.Font = new Font("Arial", 18);
-                richTextBox2 = new RichTextBox();
-                richTextBox2.Bounds = new Rectangle(180, 190, 160, 300);
-                richTextBox2.Font = new Font("Arial", 16);
-                label4 = new Label();
-                label4.Bounds = new Rectangle(20, 100, 340, 40);
-                label4.Font = new Font("Arial", 16);
-                this.Controls.Add(label);
-                this.Controls.Add(textBox1);
-                this.Controls.Add(button1);
-                this.Controls.Add(label4);
-                this.Controls.Add(label2);
-                this.Controls.Add(label3);
-                this.Controls.Add(richTextBox1);
-                this.Controls.Add(richTextBox2);
-            }
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Coding of game 
-            if (textBox1.Text == "")
-            {
-                return;
-            }
-            guessnum = Convert.ToInt32(textBox1.Text);
-            textBox1.Text = String.Empty;
-            if (win >= 0)
-            {
+        private void Form1_Load(object sender, EventArgs e)<br>
+        {<br>
 
-                if (guessnum == value)
-                {
-                    MessageBox.Show("You have guessed the number! \n The number was " + value);
-                    InitializeComponent();
-                }
-                else if (guessnum < value)
-                {
-                    richTextBox1.Text += guessnum + "\n";
-                    label4.Text = "wrong Guess and number of guesses left are " + (10 - guess);
-                }
-                else if (guessnum > value)
-                {
-                    richTextBox2.Text += guessnum + "\n";
-                    label4.Text = "wrong Guess and number of guesses left are " + (10 - guess);
-                }
-                guess++;
-                win--;
-            }
-            if (guess == 11)
-            {
-                label4.Text = "You loose,Correct Guess is " + value;
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
-}
+        }<br>
+    }<br><br>
+}<br>
 
 **OUTPUT**
 
@@ -1621,104 +1619,104 @@ namespace lab21
 
 **Develop an application to create a notepad**
 
-using System;
-using System.IO;
-using System.Drawing;
-using System.Windows.Forms;
+using System;<br>
+using System.IO;<br>
+using System.Drawing;<br>
+using System.Windows.Forms;<br>
 
-namespace lab22
-{
+namespace lab22<br>
+{<br>
 
-    public partial class NotepadForm : Form
-    {
+    public partial class NotepadForm : Form<br>
+    {<br>
 
-        private string fileName;
-        private RichTextBox txtContent;
-        private ToolBar toolBar;
-        internal NotepadForm()
-        {
-            fileName = null;
-            initializeComponents();
-        }
-        void initializeComponents()
-        {
-            this.Text = "My notepad";
-            this.MinimumSize = new Size(600, 450);
-            this.FormClosing += new FormClosingEventHandler(NotepadClosing);
-            this.MaximizeBox = true;
-            toolBar = new ToolBar();
-            toolBar.Font = new Font("Arial", 16);
-            toolBar.Padding = new Padding(4);
-            toolBar.ButtonClick += new ToolBarButtonClickEventHandler(toolBarClicked);
-            ToolBarButton toolBarButton1 = new ToolBarButton();
-            ToolBarButton toolBarButton2 = new ToolBarButton();
-            ToolBarButton toolBarButton3 = new ToolBarButton();
-            toolBarButton1.Text = "New";
-            toolBarButton2.Text = "Open";
-            toolBarButton3.Text = "Save";
-            toolBar.Buttons.Add(toolBarButton1);
-            toolBar.Buttons.Add(toolBarButton2);
-            toolBar.Buttons.Add(toolBarButton3);
-            txtContent = new RichTextBox();
-            txtContent.Size = this.ClientSize;
-            txtContent.Height -= toolBar.Height;
-            txtContent.Top = toolBar.Height;
-            txtContent.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-            txtContent.Font = new Font("Arial", 16);
-            txtContent.AcceptsTab = true;
-            txtContent.Padding = new Padding(8);
+        private string fileName;<br>
+        private RichTextBox txtCo<br>ntent;<br>
+        private ToolBar toolBar;<br>
+        internal NotepadForm()<br>
+        {<br>
+            fileName = null;<br>
+            initializeComponents();<br>
+        }<br>
+        void initializeComponents()<br>
+        {<br>
+            this.Text = "My notepad";<br>
+            this.MinimumSize = new Size(600, 450);<br>
+            this.FormClosing += new FormClosingEventHandler(NotepadClosing);<br>
+            this.MaximizeBox = true;<br>
+            toolBar = new ToolBar();<br>
+            toolBar.Font = new Font("Arial", 16);<br>
+            toolBar.Padding = new Padding(4);<br>
+            toolBar.ButtonClick += new ToolBarButtonClickEventHandler(toolBarClicked);<br>
+            ToolBarButton toolBarButton1 = new ToolBarButton();<br>
+            ToolBarButton toolBarButton2 = new ToolBarButton();<br>
+            ToolBarButton toolBarButton3 = new ToolBarButton();<br>
+            toolBarButton1.Text = "New";<br>
+            toolBarButton2.Text = "Open";<br>
+            toolBarButton3.Text = "Save";<br>
+            toolBar.Buttons.Add(toolBarButton1);<br>
+            toolBar.Buttons.Add(toolBarButton2);<br>
+            toolBar.Buttons.Add(toolBarButton3);<br>
+            txtContent = new RichTextBox();<br>
+            txtContent.Size = this.ClientSize;<br>
+            txtContent.Height -= toolBar.Height;<br>
+            txtContent.Top = toolBar.Height;<br>
+            txtContent.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;<br>
+            txtContent.Font = new Font("Arial", 16);<br>
+            txtContent.AcceptsTab = true;<br>
+            txtContent.Padding = new Padding(8);<br>
 
-            this.Controls.Add(toolBar);
-            this.Controls.Add(txtContent);
-        }
-        private void toolBarClicked(Object sender, ToolBarButtonClickEventArgs e)
-        {
-            saveFile();
-            switch (toolBar.Buttons.IndexOf(e.Button))
-            {
-                case 0:
-                    this.Text += "My notepad";
-                    txtContent.Text = string.Empty;
-                    fileName = null;
-                    break;
-                case 1:
-                    OpenFileDialog openDlg = new OpenFileDialog();
-                    if (DialogResult.OK == openDlg.ShowDialog()) ;
-                    {
-                        fileName = openDlg.FileName;
-                        txtContent.LoadFile(fileName);
-                        this.Text = "My notepad " + fileName;
-                    }
-                    break;
-            }
-        }
+            this.Controls.Add(toolBar);<br>
+            this.Controls.Add(txtContent);<br><br>
+        }<br>
+        private void toolBarClicked(Object sender, ToolBarButtonClickEventArgs e)<br>
+        {<br>
+            saveFile();<br>
+            switch (toolBar.Buttons.IndexOf(e.Button))<br>
+            {<br>
+                case 0:<br>
+                    this.Text += "My notepad";<br>
+                    txtContent.Text = string.Empty;<br>
+                    fileName = null;<br>
+                    break;<br>
+                case 1:<br>
+                    OpenFileDialog openDlg = new OpenFileDialog();<br><br>
+                    if (DialogResult.OK == openDlg.ShowDialog()) ;<br>
+                    {<br>
+                        fileName = openDlg.FileName;<br>
+                        txtContent.LoadFile(fileName);<br>
+                        this.Text = "My notepad " + fileName;<br>
+                    }<br>
+                    break;<br>
+            }<br>
+        }<br>
 
-        void saveFile()
-        {
-            if (fileName == null)
-            {
-                SaveFileDialog saveDlg = new SaveFileDialog();
-                if (DialogResult.OK == saveDlg.ShowDialog())
-                {
-                    fileName = saveDlg.FileName;
-                    this.Text += " " + fileName;
-                }
-            }
-            else
-            {
-                txtContent.SaveFile(fileName, RichTextBoxStreamType.RichText);
-            }
-        }
-        private void NotepadClosing(Object sender, FormClosingEventArgs e)
-        {
-            saveFile();
-        }
-        private void NotepadForm_Load(object sender, EventArgs e)
-        {
+        void saveFile()<br>
+        {<br>
+            if (fileName == null)<br>
+            {<br>
+                SaveFileDialog saveDlg = new SaveFileDialog();<br>
+                if (DialogResult.OK == saveDlg.ShowDialog())<br>
+                {<br>
+                    fileName = saveDlg.FileName;<br>
+                    this.Text += " " + fileName;<br>
+                }<br>
+            }<br>
+            else<br>
+            {<br>
+                txtContent.SaveFile(fileName, RichTextBoxStreamType.RichText);<br>
+            }<br>
+        }<br>
+        private void NotepadClosing(Object sender, FormClosingEventArgs e)<br>
+        {<br>
+            saveFile();<br>
+        }<br>
+        private void NotepadForm_Load(object sender, EventArgs e)<br>
+        {<br>
 
-        }
-    }
-}
+        }<br>
+    }<br>
+}<br>
           
    
 
@@ -1727,311 +1725,311 @@ namespace lab22
 ![image](https://user-images.githubusercontent.com/97940851/160997137-21d39783-db5a-47a1-bc97-40c2df57d6f9.png)
 
 **C# Program to Perform Reversal, Padding and Trimming Operations on string.**
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing.Drawing2D;
+using System;<br>
+using System.Collections.Generic;<br>
+using System.ComponentModel;<br>
+using System.Data;<br>
+using System.Drawing;<br>
+using System.Linq;<br>
+using System.Text;<br>
+using System.Threading.Tasks;<br>
+using System.Windows.Forms;<br>
+using System.Drawing.Drawing2D;<br>
 
-namespace binarytree
-{
-    public partial class Form1 : Form
-    {
-        private Node root;
-        public Form1()
-        {
-            InitializeComponent();
-            this.root = null;
-            test();
-        }
+namespace binarytree<br>
+{<br>
+    public partial class Form1 : Form<br>
+    {<br>
+        private Node root;<br>
+        public Form1()<br>
+        {<br>
+            InitializeComponent();<br>
+            this.root = null;<br>
+            test();<br>
+        }<br>
         
-    
-        void test()
-        {
-            textBox1.Text = "5";
-            btnAdd_Click(btnAdd, null);
-            textBox1.Text = "3";
-            btnAdd_Click(btnAdd, null);
-            textBox1.Text = "2";
-            btnAdd_Click(btnAdd, null);
-            textBox1.Text = "1";
-            btnAdd_Click(btnAdd, null);
-            textBox1.Text = "4";
-            btnAdd_Click(btnAdd, null);
-            textBox1.Text = "7";
-            btnAdd_Click(btnAdd, null);
-            textBox1.Text = "6";
-            btnAdd_Click(btnAdd, null);
-            textBox1.Text = "8";
-            btnAdd_Click(btnAdd, null);
-        }
+    <br>
+        void test()<br>
+        {<br>
+            textBox1.Text = "5";<br>
+            btnAdd_Click(btnAdd, null);<br>
+            textBox1.Text = "3";<br>
+            btnAdd_Click(btnAdd, null);<br>
+            textBox1.Text = "2";<br>
+            btnAdd_Click(btnAdd, null);<br>
+            textBox1.Text = "1";<br>
+            btnAdd_Click(btnAdd, null);<br><br>
+            textBox1.Text = "4";<br>
+            btnAdd_Click(btnAdd, null);<br>
+            textBox1.Text = "7";<br>
+            btnAdd_Click(btnAdd, null);<br>
+            textBox1.Text = "6";<br>
+            btnAdd_Click(btnAdd, null);<br>
+            textBox1.Text = "8";<br>
+            btnAdd_Click(btnAdd, null);<br>
+        }<br>
 
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            root = null;
-            pictureBox1.Image = null;
-        }
+        private void btnCreate_Click(object sender, EventArgs e)<br>
+        {<br>
+            root = null;<br>
+            pictureBox1.Image = null;<br>
+        }<br>
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
+        private void btnAdd_Click(object sender, EventArgs e)<br>
+        {<br>
 
-            int value = int.Parse(textBox1.Text);
-            if (root == null)
-                root = new Node(value);
-            else
+            int value = int.Parse(textBox1.Text);<br>
+            if (root == null)<br>
+                root = new Node(value);<br>
+            else<br>
+<br>
+            {<br>
+                if (root.Add(value) == false)<br>
+                    MessageBox.Show("The value already exists!");<br>
 
-            {
-                if (root.Add(value) == false)
-                    MessageBox.Show("The value already exists!");
+            }<br>
+            drawTree();<br>
 
-            }
-            drawTree();
+        }<br>
 
-        }
+        private void btnRemove_Click(object sender, EventArgs e)<br>
+        {<br>
+            int value = int.Parse(textBox1.Text);<br>
+            if (root != null)<br>
 
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            int value = int.Parse(textBox1.Text);
-            if (root != null)
+            {<br>
+                bool status = root.Remove(value, root,<br>ref root);<br>
+                if (status == false)<br>
 
-            {
-                bool status = root.Remove(value, root, ref root);
-                if (status == false)
+                {<br>
+                    MessageBox.Show("the value does not exists");<br>
 
-                {
-                    MessageBox.Show("the value does not exists");
+                }<br>
 
-                }
+            }<br>
+            drawTree();<br>
+        }<br>
 
-            }
-            drawTree();
-        }
+        private void btnSearch_Click(object sender, EventArgs e)<br>
+        {<br>
+            string msg;<br>
+            int value = int.Parse(textBox1.Text);<br>
+            if (root == null)<br>
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            string msg;
-            int value = int.Parse(textBox1.Text);
-            if (root == null)
+            {<br>
+                msg = "Tree is empty";<br>
+            }<br>
+            else<br>
+<br>
+            {<br>
+                if (root.Exists(value))<br>
 
-            {
-                msg = "Tree is empty";
-            }
-            else
+                {<br>
+                    msg = "Value found";<br>
+                }<br>
+                else<br>
 
-            {
-                if (root.Exists(value))
+                {<br>
+                    msg = "Value not found";<br>
 
-                {
-                    msg = "Value found";
-                }
-                else
+                }<br>
 
-                {
-                    msg = "Value not found";
+            }<br><br>
+            MessageBox.Show(msg);<br>
 
-                }
+        }<br>
+        void drawTree()<br>
+        {<br>
+            if (root != null)<br>
+                pictureBox1.Image = root.Draw();<br>
+            else<br>
+                pictureBox1.Image = null;<br>
+            this.Update();<br>
+        }<br>
+       /* static void Main()<br>
+        {<br>
+            Application.Run(new BinTreeForm());<br>
+        }*/<br>
+    }<br>
+    class Node<br>
+    {<br>
+        internal Node left { get; set; }<br>
+        internal Node right { get; set; }<br>
+        internal int value;<br>
+        internal int center = 12;<br>
+        private static Bitmap nodeBg = new Bitmap(30, 25);<br>
+        private static Font font = new Font("Arial", 14);<br>
+        internal Node(int value)<br>
+        {<br>
+            this.value = value;<br>
+        }<br>
+        internal bool Add(int value)<br>
+        {<br>
+            Node node = new Node(value);<br>
+            if (value < this.value)<br>
+            {<br>
+                if (this.left == null)<br>
+                {<br>
+                    this.left = node;<br>
+                    return true;<br>
+                }<br>
+                else<br>
+                    return this.left.Add(value);<br>
+            }<br>
+            else if (value > this.value)<br>
+            {<br>
+                if (this.right == null)<br>
 
-            }
-            MessageBox.Show(msg);
+             {<br>
+                    this.right = node;<br>
+                    return true;<br>
+                }<br>
+ else<br>
+                    return this.right.Add(value);<br>
+            }<br>
+            return false;<br>
+        }<br>
+        internal bool Remove(int value, Node parent, ref Node root)<br>
+        {<br>
+            if (value < this.value)<br><br>
+            {<br>
+                if (left != null)<br>
+                {<br>
+                    return left.Remove(value, this, ref root);<br>
+                }<br>
+            }<br>
+            else if (value > this.value)<br>
+            {<br>
+                if (right != null)<br><br><br>
+                {<br>
+                    return right.Remove(value, this, ref root);<br>
+                }<br>
+            }<br>
+            else if (value == this.value)<br>
+            {<br>
+                bool isLeft = (this == parent.left);<br>
+                if (left == null && right == null)<br>
+                {<br>
+                    if (root == this)<br>
+                        root = null;<br>
+                    else<br>
+                    if (isLeft) parent.left = null; else parent.right = null;<br>
+                }<br>
+                else if (right == null)<br>
+                {<br>
+                    if (isLeft) parent.left = left; else parent.right = left;<br>
+                    if (root == this)<br><br>
+                        root = left;<br><br>
+                }<br><br>
+                else<br><br>
+                {<br><br>
+                    if (right.left == null)<br><br>
+                    {<br><br>
+                        right.left = left;<br><br>
+                        if (isLeft) parent.left = right;<br><br>
+                        else<br><br>
 
-        }
-        void drawTree()
-        {
-            if (root != null)
-                pictureBox1.Image = root.Draw();
-            else
-                pictureBox1.Image = null;
-            this.Update();
-        }
-       /* static void Main()
-        {
-            Application.Run(new BinTreeForm());
-        }*/
-    }
-    class Node
-    {
-        internal Node left { get; set; }
-        internal Node right { get; set; }
-        internal int value;
-        internal int center = 12;
-        private static Bitmap nodeBg = new Bitmap(30, 25);
-        private static Font font = new Font("Arial", 14);
-        internal Node(int value)
-        {
-            this.value = value;
-        }
-        internal bool Add(int value)
-        {
-            Node node = new Node(value);
-            if (value < this.value)
-            {
-                if (this.left == null)
-                {
-                    this.left = node;
-                    return true;
-                }
-                else
-                    return this.left.Add(value);
-            }
-            else if (value > this.value)
-            {
-                if (this.right == null)
+                    parent.right = right;<br><br>
+                        if (root == this)<br><br>
+                            root = right;<br><br>
+                    }<br><br>
+                    else<br><br>
+                    {<br><br>
+                        Node node = right;<br><br>
+                        while (node.left.left != null)<br><br>
+                            node = node.left;<br><br>
+                        Console.WriteLine("Node: " + node.value);<br><br>
+                        this.value = node.left.value;<br><br>
+                        Console.WriteLine("here");<br><br>
+                        node.left = null;<br><br>
+                    }<br><br>
+                }<br>
+                return true;<br>
+            }<br>
+            return false;<br>
+        }<br>
+        public Image Draw()<br>
+        {<br>
+            Size lSize = new Size(nodeBg.Width / 2, 0);<br>
+            Size rSize = new Size(nodeBg.Width / 2, 0);<br>
+            Image lNodeImg = null;<br>
+            Image rNodeImg = null;<br>
+            int lCenter = 0, rCenter = 0;<br>
 
-             {
-                    this.right = node;
-                    return true;
-                }
- else
-                    return this.right.Add(value);
-            }
-            return false;
-        }
-        internal bool Remove(int value, Node parent, ref Node root)
-        {
-            if (value < this.value)
-            {
-                if (left != null)
-                {
-                    return left.Remove(value, this, ref root);
-                }
-            }
-            else if (value > this.value)
-            {
-                if (right != null)
-                {
-                    return right.Remove(value, this, ref root);
-                }
-            }
-            else if (value == this.value)
-            {
-                bool isLeft = (this == parent.left);
-                if (left == null && right == null)
-                {
-                    if (root == this)
-                        root = null;
-                    else
-                    if (isLeft) parent.left = null; else parent.right = null;
-                }
-                else if (right == null)
-                {
-                    if (isLeft) parent.left = left; else parent.right = left;
-                    if (root == this)
-                        root = left;
-                }
-                else
-                {
-                    if (right.left == null)
-                    {
-                        right.left = left;
-                        if (isLeft) parent.left = right;
-                        else
+            if (this.left != null)<br>
+            {<br>
+                lNodeImg = left.Draw();<br>
+                lSize = lNodeImg.Size;<br>
+                this.center = lSize.Width;<br>
+                lCenter = left.center;<br>
+            }<br>
+            if (this.right != null)<br>
+            {<br>
+                rNodeImg = right.Draw();<br><br>
+                rSize = rNodeImg.Size;<br>
+                rCenter = right.center;<br>
+            }<br>
+            int maxHeight = (lSize.Height < rSize.Height) ? rSize.Height : lSize.Height;<br><br>
+            if (maxHeight > 0) maxHeight += 35;<br>
 
-                    parent.right = right;
-                        if (root == this)
-                            root = right;
-                    }
-                    else
-                    {
-                        Node node = right;
-                        while (node.left.left != null)
-                            node = node.left;
-                        Console.WriteLine("Node: " + node.value);
-                        this.value = node.left.value;
-                        Console.WriteLine("here");
-                        node.left = null;
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        public Image Draw()
-        {
-            Size lSize = new Size(nodeBg.Width / 2, 0);
-            Size rSize = new Size(nodeBg.Width / 2, 0);
-            Image lNodeImg = null;
-            Image rNodeImg = null;
-            int lCenter = 0, rCenter = 0;
+        Size resultSize = new Size(lSize.Width + rSize.Width, nodeBg.Size.Height +maxHeight);<br>
+            Bitmap result = new Bitmap(resultSize.Width, resultSize.Height);<br>
 
-            if (this.left != null)
-            {
-                lNodeImg = left.Draw();
-                lSize = lNodeImg.Size;
-                this.center = lSize.Width;
-                lCenter = left.center;
-            }
-            if (this.right != null)
-            {
-                rNodeImg = right.Draw();
-                rSize = rNodeImg.Size;
-                rCenter = right.center;
-            }
-            int maxHeight = (lSize.Height < rSize.Height) ? rSize.Height : lSize.Height;
-            if (maxHeight > 0) maxHeight += 35;
+            Graphics g = Graphics.FromImage(result);<br>
+            g.SmoothingMode = SmoothingMode.HighQuality;<br>
+            g.FillRectangle(Brushes.White, new Rectangle(new Point(0, 0), resultSize));<br>
+            g.DrawImage(nodeBg, lSize.Width - nodeBg.Width / 2, 0);<br>
 
-        Size resultSize = new Size(lSize.Width + rSize.Width, nodeBg.Size.Height +maxHeight);
-            Bitmap result = new Bitmap(resultSize.Width, resultSize.Height);
+            string str = "" + value;<br>
+            g.DrawString(str, font, Brushes.Black, lSize.Width - nodeBg.Width / 2 + 7,<br>
+           nodeBg.Height / 2f - 12);<br>
+            Pen pen = new Pen(Brushes.Black, 1.2f);<br>
+            float x1 = center;<br>
+            float y1 = nodeBg.Height;<br>
+            float y2 = nodeBg.Height + 35;<br>
+            float x2 = lCenter;<br>
+            var h = Math.Abs(y2 - y1);<br>
+            var w = Math.Abs(x2 - x1);<br>
+            if (lNodeImg != null)<br>
+            {<br>
+                g.DrawImage(lNodeImg, 0, nodeBg.Size.Height + 35);<br>
+                var points1 = new List<PointF><br>
+ {<br>
+ new PointF(x1, y1),<br>
+ new PointF(x1 - w/6, y1 + h/3.5f),<br>
+ new PointF(x2 + w/6, y2 - h/3.5f),<br>
+ new PointF(x2, y2),<br>
+ };<br>
+                g.DrawCurve(pen, points1.ToArray(), 0.5f);<br>
+            }<br>
+            if (rNodeImg != null)<br>
+            {<br>
+                g.DrawImage(rNodeImg, lSize.Width, nodeBg.Size.Height + 35);<br>
+                x2 = rCenter + lSize.Width;<br>
+                w = Math.Abs(x2 - x1);<br>
+                var points = new List<PointF><br>
+ {<br>
+ new PointF(x1, y1),<br>
+ new PointF(x1 + w/6, y1 + h/3.5f),<br>
+ new PointF(x2 - w/6, y2 - h/3.5f),<br>
+ new PointF(x2, y2)<br>
+ };<br>
 
-            Graphics g = Graphics.FromImage(result);
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.FillRectangle(Brushes.White, new Rectangle(new Point(0, 0), resultSize));
-            g.DrawImage(nodeBg, lSize.Width - nodeBg.Width / 2, 0);
-
-            string str = "" + value;
-            g.DrawString(str, font, Brushes.Black, lSize.Width - nodeBg.Width / 2 + 7,
-           nodeBg.Height / 2f - 12);
-            Pen pen = new Pen(Brushes.Black, 1.2f);
-            float x1 = center;
-            float y1 = nodeBg.Height;
-            float y2 = nodeBg.Height + 35;
-            float x2 = lCenter;
-            var h = Math.Abs(y2 - y1);
-            var w = Math.Abs(x2 - x1);
-            if (lNodeImg != null)
-            {
-                g.DrawImage(lNodeImg, 0, nodeBg.Size.Height + 35);
-                var points1 = new List<PointF>
- {
- new PointF(x1, y1),
- new PointF(x1 - w/6, y1 + h/3.5f),
- new PointF(x2 + w/6, y2 - h/3.5f),
- new PointF(x2, y2),
- };
-                g.DrawCurve(pen, points1.ToArray(), 0.5f);
-            }
-            if (rNodeImg != null)
-            {
-                g.DrawImage(rNodeImg, lSize.Width, nodeBg.Size.Height + 35);
-                x2 = rCenter + lSize.Width;
-                w = Math.Abs(x2 - x1);
-                var points = new List<PointF>
- {
- new PointF(x1, y1),
- new PointF(x1 + w/6, y1 + h/3.5f),
- new PointF(x2 - w/6, y2 - h/3.5f),
- new PointF(x2, y2)
- };
-
-            g.DrawCurve(pen, points.ToArray(), 0.5f);
-            }
-            return result;
-        }
-        public bool Exists(int value)
-        {
-            bool res = value == this.value;
-            if (!res && left != null)
-                res = left.Exists(value);
-            if (!res && right != null)
-                res = right.Exists(value);
-            return res;
-        }
-    }
-}
+            g.DrawCurve(pen, points.ToArray(), 0.5f);<br>
+            }<br>
+            return result;<br><br>
+        }<br>
+        public bool Exists(int value)<br>
+        {<br>
+            bool res = value == this.value;<br>
+            if (!res && left != null)<br>
+                res = left.Exists(value);<br>
+            if (!res && right != null)<br>
+                res = right.Exists(value);<br>
+            return res;<br>
+        }<br>
+    }<br>
+}<br>
 
  
 **OUTPUT**
